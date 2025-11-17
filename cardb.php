@@ -1,4 +1,6 @@
-<?php echo "
+<?php echo <<<EOT
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +10,8 @@
 <style>
   .image-container {
     display: flex;
-    flex-wrap: nowrap;         /* Keep images in single row */
-    overflow-x: auto;          /* Scroll if overflow */
-    height: 150px;             /* Fixed height for container */
-    gap: 8px;                  /* Space between images */
+    height: 300px;             /* Fixed height for container */
+    gap: 18px;                  /* Space between images */
   }
   .image-container img {
     height: 100%;              /* Make images fit container height */
@@ -22,17 +22,21 @@
 </style>
 </head>
 <body>
-
 <div class="image-container">
-  <img src="https://via.placeholder.com/200x150?text=1" alt="1" />
-  <img src="https://via.placeholder.com/150x150?text=2" alt="2" />
-  <img src="https://via.placeholder.com/180x150?text=3" alt="3" />
-  <img src="https://via.placeholder.com/160x150?text=4" alt="4" />
-  <img src="https://via.placeholder.com/140x150?text=5" alt="5" />
+  <img src="https://picsum.photos/400/300" alt="1" />
+  <img src="https://picsum.photos/100/150" alt="2" />
+  <img src="https://picsum.photos/300/300" alt="3" />
+  <img src="https://picsum.photos/200/300" alt="4" />
+  <img src="https://picsum.photos/300/200" alt="5" />
+  <img src="https://picsum.photos/300/200" alt="5" />
+  <img src="https://picsum.photos/400/200" alt="5" />
+  <img src="https://picsum.photos/300/500" alt="5" />
+  <img src="https://picsum.photos/300/600" alt="5" />
+  <img src="https://picsum.photos/300/700" alt="5" />
   <!-- Add up to 15 images similarly -->
 </div>
 
 </body>
 </html>
 
-"; ?>
+EOT; ?>
