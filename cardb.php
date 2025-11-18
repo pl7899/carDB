@@ -1,12 +1,11 @@
-<?php echo <<<EOT
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Responsive Image Container</title>
+
 <style>
   .image-container {
     display: flex;
@@ -26,8 +25,11 @@
     height: 5px;
   }	
 </style>
+
 </head>
+
 <body>
+	
 <div class="image-container">
   <button style="width: 200px; height: 150px;">Add Car</button>    
   <img src="https://picsum.photos/400/300" alt="1" />
@@ -42,8 +44,9 @@
   <img src="https://picsum.photos/300/700" alt="5" />
   <!-- Add up to 15 images similarly -->
 </div>
-<hr class="lineHorizontal">   
-</body>
-</html>
 
-EOT; ?>
+<hr class="lineHorizontal">   
+
+</body>
+
+</html>
