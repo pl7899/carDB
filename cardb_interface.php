@@ -1,8 +1,15 @@
 <?php
+include('db_functions.php');
+$db = db_connect();
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
 {
-	echo <<<EOT
+	$rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
+	while ($row = mysqli_fetch_array($rows)) 
+	{
+		echo "found : " . $row['vin'] + " make : " + $row['make'];
+	}
+echo <<<EOT
 		<button style="width: 200px; height: 150px;">Add Car</button>
 		<img src="https://picsum.photos/400/300" alt="1" />
 		<img src="https://picsum.photos/100/150" alt="2" />
