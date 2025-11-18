@@ -29,7 +29,7 @@
 </head>
 
 <body>
-	
+
 <div class="image-container">
   <button style="width: 200px; height: 150px;">Add Car</button>    
   <img src="https://picsum.photos/400/300" alt="1" />
@@ -37,12 +37,14 @@
   <img src="https://picsum.photos/300/300" alt="3" />
   <img src="https://picsum.photos/200/300" alt="4" />
   <img src="https://picsum.photos/300/200" alt="5" />
-  <img src="https://picsum.photos/300/200" alt="5" />
-  <img src="https://picsum.photos/400/200" alt="5" />
-  <img src="https://picsum.photos/300/500" alt="5" />
-  <img src="https://picsum.photos/300/600" alt="5" />
-  <img src="https://picsum.photos/300/700" alt="5" />
+  <img src="https://picsum.photos/300/200" alt="6" />
+  <img src="https://picsum.photos/400/200" alt="7" />
+  <img src="https://picsum.photos/300/500" alt="8" />
   <!-- Add up to 15 images similarly -->
+</div>
+
+<div id="auto_load_time">
+	<p>location 1</p>
 </div>
 
 <hr class="lineHorizontal">   
@@ -50,3 +52,18 @@
 </body>
 
 </html>
+
+<script>
+	$(document).ready(function() {
+		auto_load_date();
+	});
+
+	function auto_load_date() {
+		var d = new Date();
+		var minutesString = d.getMinutes();
+		minutesString = minutesString<10 ? "0" + minutesString : minutesString;
+		var timeString = d.getHours() + ":" + minutesString;
+		timeString = timeString + d.toDateString();
+		document.getElementById("auto_load_time").innerHTML = timeString;
+	}
+</script>
