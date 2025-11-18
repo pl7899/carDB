@@ -29,6 +29,7 @@
 </head>
 
 <body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"> </script>
 
 <div class="image-container">
   <button style="width: 200px; height: 150px;">Add Car</button>    
