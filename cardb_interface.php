@@ -8,7 +8,7 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 	echo "trying to parse db";
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "found : " . $row['vin'] + " make : " + $row['make'];
+		echo "found : " . $row['vin'] . " make : " . $row['make'];
 	}
 echo <<<EOT
 		<button style="width: 200px; height: 150px;">Add a Car</button>
