@@ -11,7 +11,7 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 		echo "found : " . $row['vin'] + " make : " + $row['make'];
 	}
 echo <<<EOT
-		<button style="width: 200px; height: 150px;">Add Car</button>
+		<button style="width: 200px; height: 150px;">Add a Car</button>
 		<img src="https://picsum.photos/400/300" alt="1" />
 		<img src="https://picsum.photos/100/150" alt="2" />
 		<img src="https://picsum.photos/300/300" alt="3" />
