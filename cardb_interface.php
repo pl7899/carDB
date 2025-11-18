@@ -16,6 +16,7 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 }
 elseif ($_POST['action'] == "action_initial_maintenance_display")
 {
+	echo 'action_initial_maintenance_display';
 }
 else
 {
