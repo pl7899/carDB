@@ -30,41 +30,24 @@
 
 <body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"> </script>
+<script src="cardb_shim.js"></script>
 
-<div class="image-container">
-  <button style="width: 200px; height: 150px;">Add Car</button>    
-  <img src="https://picsum.photos/400/300" alt="1" />
-  <img src="https://picsum.photos/100/150" alt="2" />
-  <img src="https://picsum.photos/300/300" alt="3" />
-  <img src="https://picsum.photos/200/300" alt="4" />
-  <img src="https://picsum.photos/300/200" alt="5" />
-  <img src="https://picsum.photos/300/200" alt="6" />
-  <img src="https://picsum.photos/400/200" alt="7" />
-  <img src="https://picsum.photos/300/500" alt="8" />
-  <!-- Add up to 15 images similarly -->
-</div>
+<div id="vehicle_output" class="image-container">
 
-<div id="auto_load_time">
-	<p>location 1</p>
 </div>
 
 <hr class="lineHorizontal">   
 
-
+<div id="action_output">
+	<p>location 1</p>
+</div>
 
 <script>
 	$(document).ready(function() {
-		auto_load_date();
+		vehicle_initial_button_generation();
+		action_initial_maintenance_display();
 	});
 
-	function auto_load_date() {
-		var d = new Date();
-		var minutesString = d.getMinutes();
-		minutesString = minutesString<10 ? "0" + minutesString : minutesString;
-		var timeString = d.getHours() + ":" + minutesString;
-		timeString = timeString + d.toDateString();
-		document.getElementById("auto_load_time").innerHTML = timeString;
-	}
 </script>
 
 </body>
