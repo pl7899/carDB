@@ -49,9 +49,7 @@
 
 <hr class="lineHorizontal">   
 
-</body>
 
-</html>
 
 <script>
 	$(document).ready(function() {
@@ -67,3 +65,7 @@
 		document.getElementById("auto_load_time").innerHTML = timeString;
 	}
 </script>
+
+</body>
+
+</html>
