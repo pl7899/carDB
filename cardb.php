@@ -10,7 +10,7 @@
 <style>
   .image-container {
     display: flex;
-    height: 300px;             /* Fixed height for container */
+    height: 150px;             /* Fixed height for container */
     gap: 18px;                  /* Space between images */
   }
   .image-container img {
@@ -21,6 +21,7 @@
   }
   .lineHorizontal {
     border-top: 1px solid #000;
+    border-boottom: 1px solid #000;
     width: 100%;
     height: 5px;
   }	
