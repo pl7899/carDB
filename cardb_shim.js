@@ -20,8 +20,8 @@ function action_add_vehicle() {
         });
 }
 
-function action_select_car() {
-    $.post("cardb_interface.php", { action: "action_select_car" },
+function action_select_car(vin_number) {
+    $.post("cardb_interface.php", { action: "action_select_car", vin: "vin_number" },
         function(data) {
     		$('#action_output').html(data);
         });
