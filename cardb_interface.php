@@ -25,8 +25,7 @@ elseif ($_POST['action'] == "action_add_vehicle")
 }
 elseif ($_POST['action'] == "action_select_car")
 {
-	echo "vin was passed in as " . $_POST['vin'] . " :: ";
-	var_dump($_POST);
+	echo "vin was passed in as " . $_POST['vin'];
 }
 else
 {
