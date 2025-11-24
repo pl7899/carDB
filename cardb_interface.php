@@ -1,6 +1,10 @@
 <?php
+
 include('db_functions.php');
 include('dev_addcar.php');
+include('dev_admin.php');
+include('dev_carlog.php');
+
 $db = db_connect();
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
@@ -26,6 +30,11 @@ elseif ($_POST['action'] == "action_add_vehicle")
 elseif ($_POST['action'] == "action_select_car")
 {
 	echo "vin was passed in as " . $_POST['vin'];
+	echo $dev_carlog;
+}
+elseif ($_POST['action'] == "action_administration")
+{
+	echo $dev_admin;
 }
 else
 {

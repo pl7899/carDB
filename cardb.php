@@ -39,7 +39,7 @@
 <hr class="lineHorizontal">   
 
 <div id="action_output">
-	<p>location 1</p>
+
 </div>
 
 <script>
