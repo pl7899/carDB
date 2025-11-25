@@ -1,9 +1,9 @@
 <?php
 
 include('db_functions.php');
-include('dev_addcar.php');
-include('dev_admin.php');
-include('dev_carlog.php');
+include('div_addcar.php');
+include('div_admin.php');
+include('div_carlog.php');
 
 $db = db_connect();
 
