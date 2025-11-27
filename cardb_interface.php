@@ -25,7 +25,7 @@ elseif ($_POST['action'] == "action_initial_maintenance_display")
 	$rows = mysqli_query($db, "SELECT * FROM `cardb_maint`");
 	echo '<table border = "2">';
 	echo '<tr>';
-	echo '<th>id</th><th>garage</th><th>description</th>cost<th>date</th>miles<th>notes</th><th>invoice</th>';
+	echo '<th>id</th> <th>garage</th> <th>description</th> <th>cost</th> <th>date</th> <th>miles</th> <th>notes</th> <th>invoice</th>';
 	echo '</tr>';
 	while ($row = mysqli_fetch_array($rows)) 
 	{
