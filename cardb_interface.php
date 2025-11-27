@@ -22,6 +22,25 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 elseif ($_POST['action'] == "action_initial_maintenance_display")
 {
 	echo 'action_initial_maintenance_display';
+	$rows = mysqli_query($db, "SELECT * FROM `cardb_maint`");
+	echo '<table border = "2">';
+	echo '<tr>';
+	echo '<th>id</th><th>garage</th><th>description</th>cost<th>date</th>miles<th>notes</th><th>invoice</th>';
+	echo '</tr>';
+	while ($row = mysqli_fetch_array($rows)) 
+	{
+		echo "<tr>";
+		echo "<td>" . $row['id'] ."</td>";
+		echo "<td>" . $row['garage'] . "</td>";
+		echo "<td>" . $row['description'] . "</td>";
+		echo "<td>" . $row['cost'] . "</td>";
+		echo "<td>" . $row['date'] . "</td>";
+		echo "<td>" . $row['miles'] . "</td>";
+		echo "<td>" . $row['notes'] . "</td>";
+		echo "<td>" . $row['invoice'] . "</td>";
+		echo "</tr>";
+	}
+	echo '</table>';
 }
 elseif ($_POST['action'] == "action_add_vehicle")
 {

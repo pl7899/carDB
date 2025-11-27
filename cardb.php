@@ -24,6 +24,13 @@
     width: 100%;
     height: 5px;
   }	
+ 
+  table tr:nth-child(odd) {
+    background:#F00;
+  }
+  table tr:nth-child(even) {
+    background:#FF0;
+  }
 </style>
 
 </head>
