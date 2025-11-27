@@ -1,7 +1,6 @@
 <?php
 
 include('db_functions.php');
-include('div_addcar.php');
 include('div_admin.php');
 include('div_carlog.php');
 
@@ -44,7 +43,30 @@ elseif ($_POST['action'] == "action_initial_maintenance_display")
 }
 elseif ($_POST['action'] == "action_add_vehicle")
 {
-	echo $dev_addcar;
+	echo '<FORM>';
+    echo '<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">';
+    echo '<label for="make">Make:</label>';
+    echo '<input type="text" id="make" name="make" required><br><br>';
+
+    echo '<label for="model">Model:</label>';
+    echo '<input type="text" id="model" name="model" required><br><br>';
+
+    echo '<label for="year">Year:</label>';
+    echo '<input type="number" id="year" name="year" required><br><br>';
+
+    echo '<label for="vin">VIN Number:</label>';
+    echo '<input type="text" id="vin" name="vin" required><br><br>';
+
+    echo '<label for="registration">Registration Number:</label>';
+    echo '<input type="text" id="registration" name="registration" required><br><br>';
+
+    echo '<label for="mileage">Mileage:</label>';
+    echo '<input type="number" id="mileage" name="mileage" required><br><br>';
+
+    echo '<label for="license">License Plate:</label>';
+    echo '<input type="text" id="license" name="license" required><br><br>';
+    echo '<button type="submit">Submit</button>';
+	echo '</form></FORM>';
 }
 elseif ($_POST['action'] == "action_select_car")
 {
