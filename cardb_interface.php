@@ -65,7 +65,7 @@ elseif ($_POST['action'] == "action_add_vehicle")
 
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required><br><br>';
-    echo '<button type="submit" onclick="action()">Submit</button>';
+    echo '<button type="submit" onclick="submit_new_vehicle()">Submit</button>'; 
 	echo '</form></FORM>';
 }
 elseif ($_POST['action'] == "action_select_car")
