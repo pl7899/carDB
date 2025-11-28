@@ -13,11 +13,18 @@ function action_initial_maintenance_display() {
         });
 }
 
-function action_add_vehicle() {
+function action_add_vehicle(make, model, vin, registration, year, plate) {
     $.post("cardb_interface.php", { action: "action_add_vehicle" },
         function(data) {
     		$('#action_output').html(data);
         });
+}
+
+function submit_new_vehicle(make, model, vin, registration, year, plate) {
+  $.post("cardb_interface.php", { action: "submit_new_vehicle", make: make, model: model, vin: vin, registration: registration, year: year, plate: plate },
+      function(data) {
+      $('#action_output').html(data);
+      });
 }
 
 function action_select_car(vin_number) {

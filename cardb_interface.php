@@ -44,7 +44,7 @@ elseif ($_POST['action'] == "action_initial_maintenance_display")
 elseif ($_POST['action'] == "action_add_vehicle")
 {
 	echo '<FORM>';
-    echo '<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">';
+    echo '<form method="post" action="cardb_submitcar.php">';
     echo '<label for="make">Make:</label>';
     echo '<input type="text" id="make" name="make" required><br><br>';
 
@@ -65,7 +65,7 @@ elseif ($_POST['action'] == "action_add_vehicle")
 
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required><br><br>';
-    echo '<button type="submit">Submit</button>';
+    echo '<button type="submit" onclick="action()">Submit</button>';
 	echo '</form></FORM>';
 }
 elseif ($_POST['action'] == "action_select_car")
@@ -77,7 +77,16 @@ elseif ($_POST['action'] == "action_administration")
 {
 	echo $dev_admin;
 }
+elseif ($_POST['action'] == "submit_new_vehicle")
+{
+
+	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `image`) VALUES ('"	. $vin . "', '" . $plate . "', '" . $registration . "', '" . $make . "', '" . $model . "', '" . $miles . "', '" . $image ."');";
+	$rows = mysqli_query($db, $query);
+	echo "attempted to submit new vehicle" . $make . " " . $model;
+}
 else
 {
 	echo 'no command';
 }
+
+
