@@ -79,8 +79,10 @@ elseif ($_POST['action'] == "action_administration")
 }
 elseif ($_POST['action'] == "submit_new_vehicle")
 {
-
-	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `image`) VALUES ('"	. $vin . "', '" . $plate . "', '" . $registration . "', '" . $make . "', '" . $model . "', '" . $miles . "', '" . $image ."');";
+	echo "submit new vehicle as : " . $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] ;
+	
+	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `image`) VALUES ('"	. $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] ."');";
+	
 	$rows = mysqli_query($db, $query);
 	echo "attempted to submit new vehicle" . $make . " " . $model;
 }
