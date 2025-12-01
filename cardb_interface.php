@@ -79,12 +79,22 @@ elseif ($_POST['action'] == "action_administration")
 }
 elseif ($_POST['action'] == "submit_new_vehicle")
 {
-	echo "submit new vehicle as : " . $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] ;
+	echo "submit new vehicle as : '" . $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] . "'";
 	
 	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `image`) VALUES ('"	. $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] ."');";
 	
 	$rows = mysqli_query($db, $query);
-	echo "attempted to submit new vehicle" . $make . " " . $model;
+	echo "";
+	echo "attempted to submit new vehicle" . $_POST['make'] . " " . $_POST['model'];
+}
+elseif ($_POST['action'] == "delete_vehicle")
+{
+	echo "delete vehicle : '" . $_POST['vin'] . "'";
+	$query = "DELETE FROM `cardb_cars` WHERE `vin` = '" . $_POST['vin'] ."';";
+	
+	$rows = mysqli_query($db, $query);
+	echo "";
+	echo "attempted to delete vehicle" . $_POST['vin'];
 }
 elseif ($_POST['action'] == "outputTest")
 {

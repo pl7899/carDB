@@ -47,18 +47,14 @@ fi
 if [ "$1" = "--car" ] || [ "$1" = "-c" ]
 then
     printf "Submitting info to DB: ${NC}" 
-    echo $2
 	curl -s --data "action=submit_new_vehicle&vin=$2&make=$3&model=$4&plate=$5&registration=$6&miles=$7&image=$8" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # delete a car --card -d
-if [ "$1" = "--maint" ] || [ "$1" = "-m" ]
+if [ "$1" = "--card" ] || [ "$1" = "-d" ]
 then
     printf "Deleting a Car: ${NC}" 
-    echo $2
-	curl -s --data "action=addTask&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
-    curl -s --data "action=retrieveTaskListForProject&project=$3&previousProject=default" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -cols "$cols" -T text/html
-
+	curl -s --data "action=delete_vehicle&vin=$2" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # update a car --caru -u
