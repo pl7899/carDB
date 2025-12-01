@@ -84,6 +84,10 @@ elseif ($_POST['action'] == "submit_new_vehicle")
 	$rows = mysqli_query($db, $query);
 	echo "attempted to submit new vehicle" . $make . " " . $model;
 }
+elseif ($_POST['action'] == "outputTest")
+{
+	echo "Confirming communication to the server and that the PHP file is able to return data";
+}
 else
 {
 	echo 'no command';
