@@ -25,10 +25,10 @@ cols=`tput cols`
 if [ "$1" = "--help" ] || [ "$1" = "-h" ] || [ "$1" = "-H" ]
 then
 	echo "-c --car : add a car [vin make model plate registration miles image]"
-	echo "-d --card : delete a car"
+	echo "-d --card : delete a car [id]"
 	echo "-u --caru : update a car"
 	echo "-m --maint : create a maintenance item [/"description/" cost garage miles]"
-	echo "-r --maintr : remove a maintenance item"
+	echo "-r --maintr : remove a maintenance item [id]"
 	echo "-e --mainte : edit a maintenance item"
 	echo "-s --showmaint : show all maintenance items in the database"
 	echo "-v --showcars : show all cars in the database"
@@ -51,18 +51,17 @@ then
 fi
 
 # delete a car --card -d
-# this needs to be modified to delete based on the ID, otherwise changing a typo in a vin is not possible
 if [ "$1" = "--card" ] || [ "$1" = "-d" ]
 then
     printf "${GREEN}Deleting a Car:${NC}" 
-	curl -s --data "action=delete_vehicle&vin=$2" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
+	curl -s --data "action=delete_vehicle&id=$2" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # update a car --caru -u
 if [ "$1" = "--caru" ] || [ "$1" = "-u" ]
 then
     printf "${GREEN}Updating a Car:${NC}" 
-	curl -s --data "action=update_existing_vehicle&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
+	curl -s --data "action=update_existing_vehicle&id=$2&updatestring=$3" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # add a maintenance item --maint -m
@@ -83,7 +82,7 @@ fi
 if [ "$1" = "--mainte" ] || [ "$1" = "-e" ]
 then
     printf "${GREEN}Editing a Maintenance Item:${NC}" 
-	curl -s --data "action=update_existing_maint&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
+	curl -s --data "action=update_existing_maint&id=$2&updatestring=$3" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # show all maint items    --showmaint -s

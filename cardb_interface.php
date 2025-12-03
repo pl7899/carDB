@@ -91,8 +91,8 @@ elseif ($_POST['action'] == "submit_new_vehicle")
 }
 elseif ($_POST['action'] == "delete_vehicle")
 {
-	echo "delete vehicle : '" . $_POST['vin'] . "'";
-	$query = "DELETE FROM `cardb_cars` WHERE `vin` = '" . $_POST['vin'] ."';";
+	echo "delete vehicle : '" . $_POST['id'] . "'";
+	$query = "DELETE FROM `cardb_cars` WHERE `id` = '" . $_POST['id'] ."';";
 	
 	$rows = mysqli_query($db, $query);
 }
@@ -114,7 +114,7 @@ elseif ($_POST['action'] == "submit_new_maint")
 elseif ($_POST['action'] == "delete_maint")
 {
 	echo "delete maintenance record : '" . $_POST['id'] . "'";
-	$query = "DELETE FROM `cardb_maint` WHERE `ID` = '" . $_POST['id'] ."';";
+	$query = "DELETE FROM `cardb_maint` WHERE `id` = '" . $_POST['id'] ."';";
 	
 	$rows = mysqli_query($db, $query);
 }
