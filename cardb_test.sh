@@ -27,7 +27,7 @@ then
 	echo "-c --car : add a car [vin make model plate registration miles image]"
 	echo "-d --card : delete a car"
 	echo "-u --caru : update a car"
-	echo "-m --maint : create a maintenance item"
+	echo "-m --maint : create a maintenance item [/"description/" cost garage miles]"
 	echo "-r --maintr : remove a maintenance item"
 	echo "-e --mainte : edit a maintenance item"
 	echo "-s --showmaint : show all maintenance items in the database"
@@ -39,73 +39,65 @@ fi
 # run basic connection test 
 if [ "$1" = "--TEST" ] || [ "$1" = "-99" ]
 then
-   echo "running basic connectivity test"
+   printf "${GREEN}running basic connectivity test ${NC}" 
    curl -s --data "action=outputTest" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -cols "$cols" -T text/html
 fi
 
 # add a car  --car -c
 if [ "$1" = "--car" ] || [ "$1" = "-c" ]
 then
-    printf "Submitting info to DB: ${NC}" 
+    printf "${GREEN}Submitting car info to DB:${NC}" 
 	curl -s --data "action=submit_new_vehicle&vin=$2&make=$3&model=$4&plate=$5&registration=$6&miles=$7&image=$8" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # delete a car --card -d
+# this needs to be modified to delete based on the ID, otherwise changing a typo in a vin is not possible
 if [ "$1" = "--card" ] || [ "$1" = "-d" ]
 then
-    printf "Deleting a Car: ${NC}" 
+    printf "${GREEN}Deleting a Car:${NC}" 
 	curl -s --data "action=delete_vehicle&vin=$2" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # update a car --caru -u
-if [ "$1" = "--maint" ] || [ "$1" = "-m" ]
+if [ "$1" = "--caru" ] || [ "$1" = "-u" ]
 then
-    printf "Updating a Car: ${NC}" 
-    echo $2
-	curl -s --data "action=addTask&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
-    curl -s --data "action=retrieveTaskListForProject&project=$3&previousProject=default" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -cols "$cols" -T text/html
-
+    printf "${GREEN}Updating a Car:${NC}" 
+	curl -s --data "action=update_existing_vehicle&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # add a maintenance item --maint -m
 if [ "$1" = "--maint" ] || [ "$1" = "-m" ]
 then
-    printf "Adding Maintenance Item: ${NC}" 
-    echo $2
-	curl -s --data "action=addTask&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
-    curl -s --data "action=retrieveTaskListForProject&project=$3&previousProject=default" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -cols "$cols" -T text/html
-
+    printf "${GREEN}Adding Maintenance Item:${NC}" 
+	curl -s --data "action=submit_new_maint&vin=$2&make=$3&model=$4&plate=$5&registration=$6&miles=$7&image=$8" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # remove a mantenaince item --maintr -r 
-if [ "$1" = "--maint" ] || [ "$1" = "-m" ]
+if [ "$1" = "--maintr" ] || [ "$1" = "-r" ]
 then
-    printf "Removing a Maintenance Item: ${NC}" 
-    echo $2
-	curl -s --data "action=addTask&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
-    curl -s --data "action=retrieveTaskListForProject&project=$3&previousProject=default" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -cols "$cols" -T text/html
-
+    printf "${GREEN}Removing a Maintenance Item:${NC}" 
+	curl -s --data "action=delete_maint&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # edit a mantenanince item  --mainte -e
-if [ "$1" = "--late" ] || [ "$1" = "-l" ] || [ "$1" = "late" ]
+if [ "$1" = "--mainte" ] || [ "$1" = "-e" ]
 then
-    printf "showing ${RED}Late${NC} tasks: "
-    curl -s --data "action=retrieveLateTasks" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -cols "$cols" -T text/html
+    printf "${GREEN}Editing a Maintenance Item:${NC}" 
+	curl -s --data "action=update_existing_maint&task=$2&project=$3&priority=$4" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # show all maint items    --showmaint -s
-if [ "$1" = "--setProject" ] || [ "$1" = "-s" ]
+if [ "$1" = "--showmaint" ] || [ "$1" = "-s" ]
 then
-    printf "showing tasks from : ${RED} %s ${NC}"  $2
-    curl -s --data "action=retrieveTaskListForProject&project=$2&previousProject=default" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -cols "$cols" -T text/html
+    printf "${GREEN}Show all Maintenance Item:${NC}" 
+	curl -s --data "action=dump_maint" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # show all cars           --showcars -v
-if [ "$1" = "--Close" ] || [ "$1" = "-c" ] || [ "$1" = "close" ]
+if [ "$1" = "--showcars" ] || [ "$1" = "-v" ]
 then
-	printf "Closing task ${GREEN} %s ${NC}" $2
-    curl -s --data "action=closeTaskByNumber&taskID=$2" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -cols "$cols" -T text/html
+    printf "${GREEN}Show all cars:${NC}" 
+	curl -s --data "action=dump_vehicles" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 echo "carDB script exiting"
