@@ -162,8 +162,8 @@ function printCarTable($rows) {
 		echo "<td align=\"center\"> " . $row['id'] . "</td>";
 		echo "<td align=\"center\">" . $row['year'] . "</td>";
 		echo "<td align=\"center\">" . $row['make'] . "</td>";
-		echo "<td align=\"left\">" . $row['model'] . "</td>";
-		echo "<td align=\"left\">" . $row['miles'] . "</td>";
+		echo "<td align=\"center\">" . $row['model'] . "</td>";
+		echo "<td align=\"center\">" . $row['miles'] . "</td>";
 		echo "<td align=\"left\">" . $row['registration'] . "</td>";
 		echo "<td align=\"left\">" . $row['vin'] . "</td>";
 		echo "</tr>";
