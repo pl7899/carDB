@@ -104,30 +104,49 @@ elseif ($_POST['action'] == "update_existing_vehicle")
 	
 	$rows = mysqli_query($db, $query);
 }
-
-
+elseif ($_POST['action'] == "submit_new_maint")
+{
+	echo "submit new maintenace record : '" . $_POST['description'] . "', '" . $_POST['cost'] . "', '" . $_POST['garage'] . "'";
+	$query = "INSERT INTO `cardb_maint` (`description`, `garage`, `cost`) VALUES ('" . $_POST['description'] . "', '" . $_POST['garage'] . "', '" . $_POST['cost'] ."');";
+	
+	$rows = mysqli_query($db, $query);
+}
+elseif ($_POST['action'] == "delete_maint")
+{
+	echo "delete maintenance record : '" . $_POST['id'] . "'";
+	$query = "DELETE FROM `cardb_maint` WHERE `ID` = '" . $_POST['id'] ."';";
+	
+	$rows = mysqli_query($db, $query);
+}
+elseif ($_POST['action'] == "update_existing_maint")
+{
+	echo "updating existing maintenance record : '" . $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] . "'";
+	
+	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `image`) VALUES ('"	. $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] ."');";
+	
+	$rows = mysqli_query($db, $query);
+}
 elseif ($_POST['action'] == "dump_maint")
 {
-	echo "Output all maintenance records :";
+	echo "Output all maintenance records :\\n";
 	
 	$query = "SELECT * FROM `cardb_maint`";
 	$rows = mysqli_query($db, $query);
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "vin : " . $row['vin'] . "garage : " . $row['garage'] . " cost : " . $row['cost'] . " work done : " . $row['description'] . "</br>";
+		echo "ID : " . $row['id'] . "vin : " . $row['vin'] . "garage : " . $row['garage'] . " cost : " . $row['cost'] . " work done : " . $row['description'] . "\\n";
 	}
 }
 elseif ($_POST['action'] == "dump_vehicles")
 {
-	echo "Output all vehicles :";	
+	echo "Output all vehicles :\\n";	
 	$query = "SELECT * FROM `cardb_cars`";
 	$rows = mysqli_query($db, $query);
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "vin : " . $row['vin'] . " year : " . $row['year'] . " make : " . $row['make'] . " model : " . $row['model'] . "</br>";
+		echo "ID : " . $row['id'] . "vin : " . $row['vin'] . " year : " . $row['year'] . " make : " . $row['make'] . " model : " . $row['model'] . "\\n";
 	}
 }
-
 else
 {
 	echo 'no command';
