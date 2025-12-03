@@ -151,7 +151,7 @@ else
 
 
 function printCarTable($rows) {
-	echo "<table id=\"carTable\"><tr><th width=\"7%\"> ID </th><th width=\"13%\"> Year </th><th Make=\"5%\">Model</th><th Miles=\"62%\">Registration</th><th width=\"13%\"> VIN </th>";
+	echo "<table id=\"carTable\"> <tr> <th width=\"7%\"> ID </th> <th width=\"13%\"> Year </th> <th width=\"20%\"> Model</th> <th width=\"15%\"> Make</th> <th width=\"15%\"> Miles</th> <th width=\"15%\"> Registration</th> <th width=\"15%\"> VIN </th>";
 	if($rows == null)
 	{
 		return;
@@ -166,7 +166,6 @@ function printCarTable($rows) {
 		echo "<td align=\"left\">" . $row['miles'] . "</td>";
 		echo "<td align=\"left\">" . $row['registration'] . "</td>";
 		echo "<td align=\"left\">" . $row['vin'] . "</td>";
-		echo "<td align=\"left\">" . $row['model'] . "</td>";
 		echo "</tr>";
 		}
 	echo "</table>";
