@@ -142,10 +142,7 @@ elseif ($_POST['action'] == "dump_vehicles")
 	echo "Output all vehicles :\n";	
 	$query = "SELECT * FROM `cardb_cars`";
 	$rows = mysqli_query($db, $query);
-	while ($row = mysqli_fetch_array($rows)) 
-	{
-		echo "ID : " . $row['id'] . "vin : " . $row['vin'] . " year : " . $row['year'] . " make : " . $row['make'] . " model : " . $row['model'] . "\n";
-	}
+	printCarTable($rows);
 }
 else
 {
@@ -153,3 +150,24 @@ else
 }
 
 
+function printCarTable($rows) {
+	echo "<table id=\"carTable\"><tr><th width=\"7%\"> ID </th><th width=\"13%\"> Year </th><th Make=\"5%\">Model</th><th Miles=\"62%\">Registration</th><th width=\"13%\"> VIN </th>";
+	if($rows == null)
+	{
+		return;
+	}
+	while ($row = mysqli_fetch_array($rows)) {
+		//var_dump ($row);
+		echo "<tr " . $row['id'] . ", null)\">";
+		echo "<td align=\"center\"> " . $row['id'] . "</td>";
+		echo "<td align=\"center\">" . $row['year'] . "</td>";
+		echo "<td align=\"center\">" . $row['make'] . "</td>";
+		echo "<td align=\"left\">" . $row['model'] . "</td>";
+		echo "<td align=\"left\">" . $row['miles'] . "</td>";
+		echo "<td align=\"left\">" . $row['registration'] . "</td>";
+		echo "<td align=\"left\">" . $row['vin'] . "</td>";
+		echo "<td align=\"left\">" . $row['model'] . "</td>";
+		echo "</tr>";
+		}
+	echo "</table>";
+}
