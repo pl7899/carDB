@@ -114,7 +114,7 @@ elseif ($_POST['action'] == "dump_maint")
 	$rows = mysqli_query($db, $query);
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "vin : " . $row['vin'] . "garage : " . $row['garage'] . " cost : " . $row['cost'] . " work done : " . $row['description'];
+		echo "vin : " . $row['vin'] . "garage : " . $row['garage'] . " cost : " . $row['cost'] . " work done : " . $row['description'] . "</br>";
 	}
 }
 elseif ($_POST['action'] == "dump_vehicles")
@@ -124,7 +124,7 @@ elseif ($_POST['action'] == "dump_vehicles")
 	$rows = mysqli_query($db, $query);
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "vin : " . $row['vin'] . " year : " . $row['year'] . " make : " . $row['make'] . " model : " . $row['model'];
+		echo "vin : " . $row['vin'] . " year : " . $row['year'] . " make : " . $row['make'] . " model : " . $row['model'] . "</br>";
 	}
 }
 
