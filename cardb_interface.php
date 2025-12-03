@@ -128,23 +128,23 @@ elseif ($_POST['action'] == "update_existing_maint")
 }
 elseif ($_POST['action'] == "dump_maint")
 {
-	echo "Output all maintenance records :\\n";
+	echo "Output all maintenance records :\n";
 	
 	$query = "SELECT * FROM `cardb_maint`";
 	$rows = mysqli_query($db, $query);
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "ID : " . $row['id'] . "vin : " . $row['vin'] . "garage : " . $row['garage'] . " cost : " . $row['cost'] . " work done : " . $row['description'] . "\\n";
+		echo "ID : " . $row['id'] . "vin : " . $row['vin'] . "garage : " . $row['garage'] . " cost : " . $row['cost'] . " work done : " . $row['description'] . "\n";
 	}
 }
 elseif ($_POST['action'] == "dump_vehicles")
 {
-	echo "Output all vehicles :\\n";	
+	echo "Output all vehicles :\n";	
 	$query = "SELECT * FROM `cardb_cars`";
 	$rows = mysqli_query($db, $query);
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "ID : " . $row['id'] . "vin : " . $row['vin'] . " year : " . $row['year'] . " make : " . $row['make'] . " model : " . $row['model'] . "\\n";
+		echo "ID : " . $row['id'] . "vin : " . $row['vin'] . " year : " . $row['year'] . " make : " . $row['make'] . " model : " . $row['model'] . "\n";
 	}
 }
 else
