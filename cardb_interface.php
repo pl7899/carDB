@@ -132,10 +132,7 @@ elseif ($_POST['action'] == "dump_maint")
 	
 	$query = "SELECT * FROM `cardb_maint`";
 	$rows = mysqli_query($db, $query);
-	while ($row = mysqli_fetch_array($rows)) 
-	{
-		echo "ID : " . $row['id'] . "vin : " . $row['vin'] . "garage : " . $row['garage'] . " cost : " . $row['cost'] . " work done : " . $row['description'] . "\n";
-	}
+	printMaintTable($rows);
 }
 elseif ($_POST['action'] == "dump_vehicles")
 {
@@ -148,7 +145,6 @@ else
 {
 	echo 'no command';
 }
-
 
 function printCarTable($rows) {
 	echo "<table id=\"carTable\"> <tr> <th width=\"7%\"> ID </th> <th width=\"13%\"> Year </th> <th width=\"20%\"> Model</th> <th width=\"15%\"> Make</th> <th width=\"15%\"> Miles</th> <th width=\"15%\"> Registration</th> <th width=\"15%\"> VIN </th>";
@@ -166,6 +162,25 @@ function printCarTable($rows) {
 		echo "<td align=\"center\">" . $row['miles'] . "</td>";
 		echo "<td align=\"left\">" . $row['registration'] . "</td>";
 		echo "<td align=\"left\">" . $row['vin'] . "</td>";
+		echo "</tr>";
+		}
+	echo "</table>";
+}
+
+function printMaintTable($rows) {
+
+	echo "<table id=\"maintTable\"> <tr> <th width=\"10%\"> ID </th> <th width=\"15%\"> vin </th> <th width=\"15%\"> garage</th> <th width=\"60%\"> work done</th>";
+	if($rows == null)
+	{
+		return;
+	}
+	while ($row = mysqli_fetch_array($rows)) {
+		//var_dump ($row);
+		echo "<tr " . $row['id'] . ", null)\">";
+		echo "<td align=\"center\"> " . $row['id'] . "</td>";
+		echo "<td align=\"center\">" . $row['vin'] . "</td>";
+		echo "<td align=\"center\">" . $row['garage'] . "</td>";
+		echo "<td align=\"center\">" . $row['cost'] . "</td>";
 		echo "</tr>";
 		}
 	echo "</table>";
