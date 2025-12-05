@@ -169,7 +169,17 @@ function printCarTable($rows) {
 
 function printMaintTable($rows) {
 
-	echo "<table id=\"maintTable\"> <tr> <th width=\"10%\"> ID </th> <th width=\"15%\"> vin </th> <th width=\"15%\"> garage</th> <th width=\"60%\"> work done</th>";
+	echo "<table id=\"maintTable\"> <tr> 
+	<th width=\"5%\"> ID </th> 
+	<th width=\"10%\"> vin </th> 
+	<th width=\"10%\"> garage</th> 
+	<th width=\"5%\"> cost </th>
+	<th width=\"10%\"> miles </th>
+	<th width=\"25%\"> description </th>
+	<th width=\"10%\"> date</th>
+	<th width=\"25%\"> notes</th>
+	
+	";
 	if($rows == null)
 	{
 		return;
@@ -181,6 +191,10 @@ function printMaintTable($rows) {
 		echo "<td align=\"center\">" . $row['vin'] . "</td>";
 		echo "<td align=\"center\">" . $row['garage'] . "</td>";
 		echo "<td align=\"center\">" . $row['cost'] . "</td>";
+		echo "<td align=\"center\">" . $row['miles'] . "</td>";
+		echo "<td align=\"center\">" . $row['description'] . "</td>";
+		echo "<td align=\"center\">" . $row['date'] . "</td>";
+		echo "<td align=\"center\">" . $row['notes'] . "</td>";
 		echo "</tr>";
 		}
 	echo "</table>";
