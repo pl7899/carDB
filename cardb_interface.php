@@ -99,7 +99,7 @@ elseif ($_POST['action'] == "delete_vehicle")
 elseif ($_POST['action'] == "update_existing_vehicle")
 {
 
-	$query = "UPDATE `cardb_cars` SET `vin` = "	. $_POST['vin'] . ", `plate` = " . $_POST['plate'] . ", `registration` = " . $_POST['registration'] . "WHERE 'vehicleID' = " . $_POST['vehicleToUpdate']  . "');";
+	$query = "UPDATE `cardb_cars` SET `vin` = "	. $_POST['updatestring'] . ", `plate` = " . $_POST['plate'] . ", `registration` = " . $_POST['registration'] . "WHERE 'vehicleID' = " . $_POST['vehicletoupdate']  . "');";
 	echo "updating existing vehicle : '" . $query . "'";
 }
 elseif ($_POST['action'] == "submit_new_maint")

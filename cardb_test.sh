@@ -61,7 +61,7 @@ fi
 if [ "$1" = "--caru" ] || [ "$1" = "-u" ]
 then
     printf "${GREEN}Updating a Car:${NC}" 
-	curl -s --data "action=update_existing_vehicle&id=$2&updatestring=$3" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
+	curl -s --data "action=update_existing_vehicle&vehicletoupdate=$2&updatestring=$3" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # add a maintenance item --maint -m
