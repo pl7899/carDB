@@ -146,7 +146,6 @@ elseif ($_POST['action'] == "update_existing_vehicle")
 	}
 
 	$query = "UPDATE `cardb_cars` SET `vin` = "	. $newVin . ", `plate` = " . $newPlate . ", `registration` = " . $newRegistration . ", `year` = " . $newYear . ", `make` = " . $newMake . ", `model` = " . $newModel . ", `miles` = " . $newMiles . ", `image` = " . $newImage . " WHERE 'vehicleID' = " . $_POST['vehicletoupdate']  . "');";
-	$query = "UPDATE cardb_cars SET vin = '"	. $newVin . "', plate = '" . $newPlate . "', registration = '" . $newRegistration . "', make = '" . $newMake . "', model = '" . $newModel . "', miles = '" . $newMiles . "', image = '" . $newImage . "' WHERE vehicleID = '" . $_POST['vehicletoupdate']  . "');";
 	echo "updating existing vehicle : '" . $query . "'";
 }
 elseif ($_POST['action'] == "submit_new_maint")
