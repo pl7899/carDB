@@ -98,11 +98,9 @@ elseif ($_POST['action'] == "delete_vehicle")
 }
 elseif ($_POST['action'] == "update_existing_vehicle")
 {
-	echo "updating existing vehicle : '" . $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] . "'";
-	
-	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `image`) VALUES ('"	. $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] ."');";
-	
-	$rows = mysqli_query($db, $query);
+
+	$query = "UPDATE `cardb_cars` SET `vin` = "	. $_POST['vin'] . ", `plate` = " . $_POST['plate'] . ", `registration` = " . $_POST['registration'] . "WHERE 'vehicleID' = " . $_POST['vehicleToUpdate']  . "');";
+	echo "updating existing vehicle : '" . $query . "'";
 }
 elseif ($_POST['action'] == "submit_new_maint")
 {
