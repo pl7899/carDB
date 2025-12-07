@@ -47,8 +47,6 @@ elseif ($_POST['action'] == "action_initial_maintenance_display")
 }
 elseif ($_POST['action'] == "action_add_vehicle")
 {
-	echo '<FORM>';
-    echo '<form method="post" action="cardb_interface.php">';
     echo '<label for="make">Make:</label>';
     echo '<input type="text" id="make" name="make" required><br><br>';
 
@@ -70,7 +68,6 @@ elseif ($_POST['action'] == "action_add_vehicle")
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required><br><br>';
     echo '<button type="submit">Submit</button>'; 
-	echo '</form></FORM>';
 }
 elseif ($_POST['action'] == "action_select_car")
 {
