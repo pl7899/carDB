@@ -100,21 +100,48 @@ elseif ($_POST['action'] == "update_existing_vehicle")
 {
 	$everyOther = TRUE;
 	$tok = strtok($_POST['updatestring'], " =");
-
+	$key=$tok;
 	while ($tok !== false) {
 		$everyOther = !$everyOther;
 		if($everyOther === FALSE)
 		{
-			echo "Key={$tok} :: ";
+			$key=$tok;
 		}		
-		else{
-			echo "Value={$tok}\n";
+		else
+		{
+			if($key === "vin")
+			{
+				$newVin = $tok;
+			}
+			else if($key === "plate")
+			{
+				$newPlate = $tok;
+			}
+			else if($key === "registration")
+			{
+				$newRegistration = $tok;
+			}
+			else if($key === "make")
+			{
+				$newMake = $tok;
+			}
+			else if($key === "model")
+			{
+				$newModel = $tok;
+			}
+			else if($key === "miles")
+			{
+				$newMiles = $tok;
+			}
+			else if($key === "image")
+			{
+				$newImage = $tok;
+			}
 		}
 		$tok = strtok(" =");
 	}
 
-
-	$query = "UPDATE `cardb_cars` SET `vin` = "	. $_POST['updatestring'] . ", `plate` = " . $_POST['plate'] . ", `registration` = " . $_POST['registration'] . "WHERE 'vehicleID' = " . $_POST['vehicletoupdate']  . "');";
+	$query = "UPDATE `cardb_cars` SET `vin` = "	. $newVin . ", `plate` = " . $newPlate . ", `registration` = " . $newRegistration . ", `make` = " . $newMake . ", `model` = " . $newModel . ", `miles` = " . $newMiles . ", `image` = " . $newImage . "WHERE 'vehicleID' = " . $_POST['vehicletoupdate']  . "');";
 	echo "updating existing vehicle : '" . $query . "'";
 }
 elseif ($_POST['action'] == "submit_new_maint")
