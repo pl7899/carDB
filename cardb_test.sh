@@ -82,7 +82,7 @@ fi
 if [ "$1" = "--mainte" ] || [ "$1" = "-e" ]
 then
     printf "${GREEN}Editing a Maintenance Item:${NC}" 
-	curl -s --data "action=update_existing_maint&idmaintenancetoupdate=$2&updatestring=$3" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
+	curl -s --data "action=update_existing_maint&maintenancetoupdate=$2&updatestring=$3" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 # show all maint items    --showmaint -s
