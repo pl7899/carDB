@@ -144,10 +144,7 @@ elseif ($_POST['action'] == "update_existing_vehicle")
 		}
 		$tok = strtok(" =");
 	}
-
-	$query = "UPDATE `cardb_cars` SET `vin` = "	. $newVin . ", `plate` = " . $newPlate . ", `registration` = " . $newRegistration . ", `make` = " . $newYear . ", `make` = " . $newMake . ", `model` = " . $newModel . ", `miles` = " . $newMiles . ", `image` = " . $newImage . " WHERE 'vehicleID' = " . $_POST['vehicletoupdate']  . "');";
 	$query = "UPDATE cardb_cars SET vin = '"	. $newVin . "', plate = '" . $newPlate . "', registration = '" . $newRegistration . "', make = '" . $newMake . "', year = '" . $newYear . "', model = '" . $newModel . "', miles = '" . $newMiles . "', image = '" . $newImage . "' WHERE id = '" . $_POST['vehicletoupdate']  . "';";
-	echo "updating existing vehicle : '" . $query . "'";
 	$rows = mysqli_query($db, $query);
 }
 elseif ($_POST['action'] == "submit_new_maint")
@@ -166,10 +163,53 @@ elseif ($_POST['action'] == "delete_maint")
 }
 elseif ($_POST['action'] == "update_existing_maint")
 {
-	echo "updating existing maintenance record : '" . $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] . "'";
-	
-	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `image`) VALUES ('"	. $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] ."');";
-	
+	$everyOther = TRUE;
+	$tok = strtok($_POST['updatestring'], " =");
+	$key=$tok;
+	while ($tok !== false) {
+		$everyOther = !$everyOther;
+		if($everyOther === FALSE)
+		{
+			$key=$tok;
+		}		
+		else
+		{
+			if($key === "vehicleID")
+			{
+				$newVehicleID = $tok;
+			}
+			else if($key === "garage")
+			{
+				$newGarage = $tok;
+			}
+			else if($key === "cost")
+			{
+				$newCost = $tok;
+			}
+			else if($key === "date")
+			{
+				$newDate = $tok;
+			}
+			else if($key === "miles")
+			{
+				$newMiles = $tok;
+			}
+			else if($key === "notes")
+			{
+				$newNotes = $tok;
+			}
+			else if($key === "description")
+			{
+				$newDescription = $tok;
+			}
+			else if($key === "invoice")
+			{
+				$newInvoice = $tok;
+			}
+		}
+		$tok = strtok(" =");
+	}
+	$query = "UPDATE cardb_maint SET vinvehicleID = '"	. $newVehicleID . "', garage = '" . $newGarage . "', cost = '" . $newCost . "', date = '" . $newDate . "', miles = '" . $newMiles . "', description = '" . $newDescription . "', notes = '" . $newNotes . "', invoice = '" . $newInvoice . "' WHERE id = '" . $_POST['maintenancetoupdate']  . "';";
 	$rows = mysqli_query($db, $query);
 }
 elseif ($_POST['action'] == "dump_maint")
