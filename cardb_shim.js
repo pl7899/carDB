@@ -40,3 +40,14 @@ function action_administration() {
     		$('#action_output').html(data);
         });
 }
+
+function handleNewCarCreation() {
+  var newCarMake = document.getElementById("make").value;
+  var newCarModel = document.getElementById("model").value;
+  var newCarVin = document.getElementById("vin").value;
+  var newCarRegistration = document.getElementById("registration").value;
+  var newCarYear = document.getElementById("year").value;
+  var newCarPlate = document.getElementById("plate").value;
+
+  action_add_vehicle(make, model, vin, registration, year, plate);
+}
