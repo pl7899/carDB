@@ -133,6 +133,10 @@ elseif ($_POST['action'] == "update_existing_vehicle")
 			{
 				$newMiles = $tok;
 			}
+			else if($key === "year")
+			{
+				$newMiles = $tok;
+			}
 			else if($key === "image")
 			{
 				$newImage = $tok;
@@ -141,7 +145,7 @@ elseif ($_POST['action'] == "update_existing_vehicle")
 		$tok = strtok(" =");
 	}
 
-	$query = "UPDATE `cardb_cars` SET `vin` = "	. $newVin . ", `plate` = " . $newPlate . ", `registration` = " . $newRegistration . ", `make` = " . $newMake . ", `model` = " . $newModel . ", `miles` = " . $newMiles . ", `image` = " . $newImage . " WHERE 'vehicleID' = " . $_POST['vehicletoupdate']  . "');";
+	$query = "UPDATE `cardb_cars` SET `vin` = "	. $newVin . ", `plate` = " . $newPlate . ", `registration` = " . $newRegistration . ", `year` = " . $newYear . ", `make` = " . $newMake . ", `model` = " . $newModel . ", `miles` = " . $newMiles . ", `image` = " . $newImage . " WHERE 'vehicleID' = " . $_POST['vehicletoupdate']  . "');";
 	$query = "UPDATE cardb_cars SET vin = '"	. $newVin . "', plate = '" . $newPlate . "', registration = '" . $newRegistration . "', make = '" . $newMake . "', model = '" . $newModel . "', miles = '" . $newMiles . "', image = '" . $newImage . "' WHERE vehicleID = '" . $_POST['vehicletoupdate']  . "');";
 	echo "updating existing vehicle : '" . $query . "'";
 }
