@@ -135,7 +135,7 @@ elseif ($_POST['action'] == "update_existing_vehicle")
 			}
 			else if($key === "year")
 			{
-				$newMiles = $tok;
+				$newYear = $tok;
 			}
 			else if($key === "image")
 			{
