@@ -210,7 +210,7 @@ elseif ($_POST['action'] == "update_existing_maint")
 		$tok = strtok(" =");
 	}
 	$query = "UPDATE cardb_maint SET vinvehicleID = '"	. $newVehicleID . "', garage = '" . $newGarage . "', cost = '" . $newCost . "', date = '" . $newDate . "', miles = '" . $newMiles . "', description = '" . $newDescription . "', notes = '" . $newNotes . "', invoice = '" . $newInvoice . "' WHERE id = '" . $_POST['maintenancetoupdate']  . "';";
-	echo $query;
+	$rows = mysqli_query($db, $query);
 }
 elseif ($_POST['action'] == "dump_maint")
 {
