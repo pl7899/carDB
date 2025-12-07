@@ -98,8 +98,21 @@ elseif ($_POST['action'] == "delete_vehicle")
 }
 elseif ($_POST['action'] == "update_existing_vehicle")
 {
-	$newEntries = explode(" ", $_POST['updatestring']);
-	var_dump($newEntries);
+	$everyOther = TRUE;
+	$tok = strtok($_POST['updatestring'], " =");
+
+	while ($tok !== false) {
+		$everyOther = !$everyOther;
+		if($everyOther === FALSE)
+		{
+			echo "Key={$tok} :: ";
+		}		
+		else{
+			echo "Value={$tok}\n";
+		}
+		$tok = strtok(" =");
+	}
+
 
 	$query = "UPDATE `cardb_cars` SET `vin` = "	. $_POST['updatestring'] . ", `plate` = " . $_POST['plate'] . ", `registration` = " . $_POST['registration'] . "WHERE 'vehicleID' = " . $_POST['vehicletoupdate']  . "');";
 	echo "updating existing vehicle : '" . $query . "'";
