@@ -12,7 +12,7 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 	$rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "<button onclick=\"action_select_car(" . $row['vin'] . ")\" style=\"width: 200px; height: 150px;\">" . $row['vin'] . " " . $row['make'] . "</button>";
+		echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px;\">" . $row['Make'] . " " . $row['model'] . "</button>";
 	}
 
 }
@@ -69,8 +69,18 @@ elseif ($_POST['action'] == "action_add_vehicle")
 }
 elseif ($_POST['action'] == "action_select_car")
 {
-	echo "vin was passed in as " . $_POST['vin'];
-	echo $dev_carlog;
+	// Both queries below should be driven by the ID of the car that was selected
+	// need to display the car specific information from the carDB and an edit button to allow for editing the car entry
+	// first query will be the car information from carDB
+	$query = "SELECT * FROM `cardb_cars` WHERE `id` = " . $_POST[activeCar] . ";";
+	$rows = mysqli_query($db, $query);
+	printCarTable($rows);
+
+	// should be able to query the maintenance DB for the carID and output the table of info
+	// second query will be from the maintDB to get the recent work items
+	$query = "SELECT * FROM `cardb_maint` WHERE `id` = " . $_POST[activeCar] . ";";
+	$rows = mysqli_query($db, $query);
+	printMaintTable($rows);
 }
 elseif ($_POST['action'] == "action_administration")
 {

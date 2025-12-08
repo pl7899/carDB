@@ -53,3 +53,10 @@ function handleNewCarCreation() {
 
   submit_new_vehicle(newCarMake, newCarModel, newCarVin, newCarRegistration, newCarYear, newCarPlate);
 }
+
+function setActiveCar(carID) {
+  $.post("cardb_interface.php", { action: "action_select_car", activeCar: carID },
+    function(data) {
+      $('#action_output').html(data);
+    });
+}
