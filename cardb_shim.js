@@ -47,7 +47,7 @@ function handleNewCarCreation() {
   var newCarVin = document.getElementById("vin").value;
   var newCarRegistration = document.getElementById("registration").value;
   var newCarYear = document.getElementById("year").value;
-  var newCarPlate = document.getElementById("plate").value;
+  var newCarPlate = document.getElementById("license").value;
 
   action_add_vehicle(make, model, vin, registration, year, plate);
 }
