@@ -49,5 +49,5 @@ function handleNewCarCreation() {
   var newCarYear = document.getElementById("year").value;
   var newCarPlate = document.getElementById("license").value;
 
-  action_add_vehicle(newCarMake, newCarModel, newCarVin, newCarRegistration, newCarYear, newCarPlate);
+  submit_new_vehicle(newCarMake, newCarModel, newCarVin, newCarRegistration, newCarYear, newCarPlate);
 }
