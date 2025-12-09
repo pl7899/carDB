@@ -71,12 +71,10 @@ elseif ($_POST['action'] == "action_select_car")
 {
 
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
-	echo "$query";
 	$rows = mysqli_query($db, $query);
 	printCarTable($rows);
 
-	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = " . $_POST['activeCar'] . "';";
-	echo "$query";
+	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
 	printMaintTable($rows);
 }
