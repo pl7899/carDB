@@ -69,26 +69,16 @@ elseif ($_POST['action'] == "action_add_vehicle")
 }
 elseif ($_POST['action'] == "action_select_car")
 {
-	echo "ver2 entry for action_select_car" . $_POST['activecar'];
-	echo " :0:" . $_POST['activecar'];
 
-	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activecar'] . "';";
-	echo " :1:";
+	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
 	echo "$query";
-	echo " :2:";
 	$rows = mysqli_query($db, $query);
-	echo " :3:";
 	printCarTable($rows);
-	echo " :4:";
 
-	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = " . $_POST['activecar'] . "';";
-	echo " :5:";
+	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = " . $_POST['activeCar'] . "';";
 	echo "$query";
-	echo " :6:";
 	$rows = mysqli_query($db, $query);
-	echo " :7:";
 	printMaintTable($rows);
-	echo " :8:";
 }
 elseif ($_POST['action'] == "action_administration")
 {

@@ -104,7 +104,7 @@ fi
 if [ "$1" = "--carlog" ] || [ "$1" = "-l" ]
 then
     printf "${GREEN}show car maintenance log:${NC}" 
-	curl -s --data "action=action_select_car&activecar=$2" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
+	curl -s --data "action=action_select_car&activeCar=$2" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
 
 
