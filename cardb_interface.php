@@ -70,6 +70,7 @@ elseif ($_POST['action'] == "action_add_vehicle")
 elseif ($_POST['action'] == "action_select_car")
 {
 	echo " entry for action_select_car";
+	echo " :0:" . $_POST[activeCar];
 
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST[activeCar] . "';";
 	echo " :1:";
