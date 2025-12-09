@@ -72,14 +72,22 @@ elseif ($_POST['action'] == "action_select_car")
 	echo " entry for action_select_car";
 
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST[activeCar] . "';";
+	echo " :1:";
 	echo "$query";
+	echo " :2:";
 	$rows = mysqli_query($db, $query);
+	echo " :3:";
 	printCarTable($rows);
+	echo " :4:";
 
 	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = " . $_POST[activeCar] . "';";
+	echo " :5:";
 	echo "$query";
+	echo " :6:";
 	$rows = mysqli_query($db, $query);
+	echo " :7:";
 	printMaintTable($rows);
+	echo " :8:";
 }
 elseif ($_POST['action'] == "action_administration")
 {
