@@ -243,6 +243,7 @@ function printCarTable($rows) {
 	echo "<table id=\"carTable\"> <tr> <th width=\"7%\"> ID </th> <th width=\"13%\"> Year </th> <th width=\"20%\"> Model</th> <th width=\"15%\"> Make</th> <th width=\"15%\"> Miles</th> <th width=\"15%\"> Registration</th> <th width=\"15%\"> VIN </th>";
 	if($rows == null)
 	{
+		echo "</table>";
 		return;
 	}
 	while ($row = mysqli_fetch_array($rows)) {
@@ -275,6 +276,7 @@ function printMaintTable($rows) {
 	";
 	if($rows == null)
 	{
+		echo "</table>";
 		return;
 	}
 	while ($row = mysqli_fetch_array($rows)) {
