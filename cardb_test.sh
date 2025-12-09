@@ -32,6 +32,7 @@ then
 	echo "-e --mainte : edit a maintenance item"
 	echo "-s --showmaint : show all maintenance items in the database"
 	echo "-v --showcars : show all cars in the database"
+	echo "-l --carlog : show maintenance items related to this car"
 	echo "-99 --TEST : test basic connectivity to the server"
 	echo "-h --help : show commands supported by this script"
 fi
@@ -98,5 +99,13 @@ then
     printf "${GREEN}Show all cars:${NC}" 
 	curl -s --data "action=dump_vehicles" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
 fi
+
+# show specific cars maintenance items   --carlog -l
+if [ "$1" = "--carlog" ] || [ "$1" = "-l" ]
+then
+    printf "${GREEN}show car maintenance log:${NC}" 
+	curl -s --data "action=action_select_car&activeCar=$2" https://northridge-studios.com/cardb/cardb_interface.php | w3m -dump -T text/html
+fi
+
 
 echo "carDB script exiting"

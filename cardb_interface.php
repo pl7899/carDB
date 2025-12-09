@@ -69,6 +69,7 @@ elseif ($_POST['action'] == "action_add_vehicle")
 }
 elseif ($_POST['action'] == "action_select_car")
 {
+	echo " entry for action_select_car";
 	// Both queries below should be driven by the ID of the car that was selected
 	// need to display the car specific information from the carDB and an edit button to allow for editing the car entry
 	// first query will be the car information from carDB
@@ -79,7 +80,7 @@ elseif ($_POST['action'] == "action_select_car")
 
 	// should be able to query the maintenance DB for the carID and output the table of info
 	// second query will be from the maintDB to get the recent work items
-	$query = "SELECT * FROM `cardb_maint` WHERE `id` = " . $_POST[activeCar] ;
+	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = " . $_POST[activeCar] ;
 	echo $query;
 	$rows = mysqli_query($db, $query);
 	printMaintTable($rows);
