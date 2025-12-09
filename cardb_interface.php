@@ -69,10 +69,10 @@ elseif ($_POST['action'] == "action_add_vehicle")
 }
 elseif ($_POST['action'] == "action_select_car")
 {
-	echo "ver2 entry for action_select_car" . $_POST[activeCar];
-	echo " :0:" . $_POST[activeCar];
+	echo "ver2 entry for action_select_car" . $_POST[activecar];
+	echo " :0:" . $_POST[activecar];
 
-	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST[activeCar] . "';";
+	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST[activecar] . "';";
 	echo " :1:";
 	echo "$query";
 	echo " :2:";
@@ -81,7 +81,7 @@ elseif ($_POST['action'] == "action_select_car")
 	printCarTable($rows);
 	echo " :4:";
 
-	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = " . $_POST[activeCar] . "';";
+	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = " . $_POST[activecar] . "';";
 	echo " :5:";
 	echo "$query";
 	echo " :6:";
