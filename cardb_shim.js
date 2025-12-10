@@ -60,3 +60,10 @@ function setActiveCar(carID) {
       $('#action_output').html(data);
     });
 }
+
+function updateExitingCar(carID) {
+  $.post("cardb_interface.php", { action: "modify_existing_vehicle", activeCar: carID },
+    function(data) {
+      $('#action_output').html(data);
+    });
+}

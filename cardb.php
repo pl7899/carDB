@@ -24,7 +24,18 @@
     width: 100%;
     height: 5px;
   }	
- 
+  .td-button {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .td-button:hover {
+      background: #45a049;
+  }
+
   table tr:nth-child(odd) {
     background:#F00;
   }

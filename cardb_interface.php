@@ -90,6 +90,30 @@ elseif ($_POST['action'] == "submit_new_vehicle")
 	
 	$rows = mysqli_query($db, $query);
 }
+elseif ($_POST['action'] == "modify_existing_vehicle")
+{
+    echo '<label for="make">Make:</label>';
+    echo '<input type="text" id="make" name="make" required><br><br>';
+
+    echo '<label for="model">Model:</label>';
+    echo '<input type="text" id="model" name="model" required><br><br>';
+
+    echo '<label for="year">Year:</label>';
+    echo '<input type="number" id="year" name="year" required><br><br>';
+
+    echo '<label for="vin">VIN Number:</label>';
+    echo '<input type="text" id="vin" name="vin" required><br><br>';
+
+    echo '<label for="registration">Registration Number:</label>';
+    echo '<input type="text" id="registration" name="registration" required><br><br>';
+
+    echo '<label for="mileage">Mileage:</label>';
+    echo '<input type="number" id="mileage" name="mileage" required><br><br>';
+
+    echo '<label for="license">License Plate:</label>';
+    echo '<input type="text" id="license" name="license" required><br><br>';
+    echo '<button onclick="updateExistingVehicle();">Modify Car</button>'; 
+}
 elseif ($_POST['action'] == "delete_vehicle")
 {
 	echo "delete vehicle : '" . $_POST['id'] . "'";
@@ -264,6 +288,11 @@ function printCarTable($rows, $showEditButton) {
 		echo "<td align=\"center\">" . $row['miles'] . "</td>";
 		echo "<td align=\"left\">" . $row['registration'] . "</td>";
 		echo "<td align=\"left\">" . $row['vin'] . "</td>";
+		if($showEditButton == 1)
+		{
+			echo "<td class=\"td-button\" onclick=\"alert('Cell clicked!')\"> Edit </td>";
+		}
+	
 		echo "</tr>";
 		}
 	echo "</table>";
