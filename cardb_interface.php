@@ -72,7 +72,7 @@ elseif ($_POST['action'] == "action_select_car")
 
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
-	printCarTable($rows);
+	printCarTable($rows, 1);
 
 	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
@@ -226,15 +226,29 @@ elseif ($_POST['action'] == "dump_vehicles")
 	echo "Output all vehicles :\n";	
 	$query = "SELECT * FROM `cardb_cars`";
 	$rows = mysqli_query($db, $query);
-	printCarTable($rows);
+	printCarTable($rows, 0);
 }
 else
 {
 	echo 'no command';
 }
 
-function printCarTable($rows) {
-	echo "<table id=\"carTable\"> <tr> <th width=\"7%\"> ID </th> <th width=\"13%\"> Year </th> <th width=\"20%\"> Model</th> <th width=\"15%\"> Make</th> <th width=\"15%\"> Miles</th> <th width=\"15%\"> Registration</th> <th width=\"15%\"> VIN </th>";
+function printCarTable($rows, $showEditButton) {
+	echo "<table id=\"carTable\"> 
+	<tr> 
+	<th width=\"5%\"> ID </th> 
+	<th width=\"10%\"> Year </th> 
+	<th width=\"15%\"> Model</th> 
+	<th width=\"15%\"> Make</th> 
+	<th width=\"15%\"> Miles</th> 
+	<th width=\"15%\"> Registration</th> 
+	<th width=\"15%\"> VIN </th>";
+	if($showEditButton == 1)
+	{
+		echo "<th width=\"10%\"> Modify </th>";
+	}
+
+	echo "</tr>";
 	if($rows == null)
 	{
 		echo "</table>";
@@ -242,7 +256,7 @@ function printCarTable($rows) {
 	}
 	while ($row = mysqli_fetch_array($rows)) {
 		//var_dump ($row);
-		echo "<tr " . $row['id'] . ", null)\">";
+		echo "<tr>";
 		echo "<td align=\"center\"> " . $row['id'] . "</td>";
 		echo "<td align=\"center\">" . $row['year'] . "</td>";
 		echo "<td align=\"center\">" . $row['make'] . "</td>";
