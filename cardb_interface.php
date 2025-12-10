@@ -99,27 +99,26 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 		return;
 	}	
 	$row = mysqli_fetch_array($rows);
-	echo $row[make];
 	echo '<label for="make">Make:</label>';
-    echo '<input type="text" id="make" name="make" required placeholder="make" /> <br>';
+    echo '<input type="text" id="make" name="make" required placeholder="' . $row['make'] . '" /> <br>';
 
     echo '<label for="model">Model:</label>';
-    echo '<input type="text" id="model" name="model" required placeholder="' . $row[model] . '" /> <br>';
+    echo '<input type="text" id="model" name="model" required placeholder="' . $row['model'] . '" /> <br>';
 
     echo '<label for="year">Year:</label>';
-    echo '<input type="number" id="year" name="year" required placeholder="' . $row[year] . '" /> <br>';
+    echo '<input type="number" id="year" name="year" required placeholder="' . $row['year'] . '" /> <br>';
 
     echo '<label for="vin">VIN Number:</label>';
-    echo '<input type="text" id="vin" name="vin" required placeholder="' . $row[vin] . '" /> <br>';
+    echo '<input type="text" id="vin" name="vin" required placeholder="' . $row['vin'] . '" /> <br>';
 
     echo '<label for="registration">Registration Number:</label>';
-    echo '<input type="text" id="registration" name="registration" required placeholder="' . $row[registration] . '" /> <br>';
+    echo '<input type="text" id="registration" name="registration" required placeholder="' . $row['registration'] . '" /> <br>';
 
     echo '<label for="mileage">Mileage:</label>';
-    echo '<input type="number" id="mileage" name="mileage" required placeholder="' . $row[miles] . '" /> <br>';
+    echo '<input type="number" id="mileage" name="mileage" required placeholder="' . $row['miles'] . '" /> <br>';
 
     echo '<label for="license">License Plate:</label>';
-    echo '<input type="text" id="license" name="license" required placeholder="' . $row[model] . '" /> <br>';
+    echo '<input type="text" id="license" name="license" required placeholder="' . $row['plate'] . '" /> <br>';
     echo '<button onclick="updateExistingVehicle();">Modify Car</button>'; 
 }
 elseif ($_POST['action'] == "delete_vehicle")
