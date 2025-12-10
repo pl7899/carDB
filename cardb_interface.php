@@ -290,7 +290,7 @@ function printCarTable($rows, $showEditButton) {
 		echo "<td align=\"left\">" . $row['vin'] . "</td>";
 		if($showEditButton == 1)
 		{
-			echo "<td class=\"td-button\" onclick=\"alert('Cell clicked!')\"> Edit </td>";
+			echo "<td class=\"td-button\" onclick=\"updateExitingCar(" . $row['id'] .")\"> Edit </td>";
 		}
 	
 		echo "</tr>";
