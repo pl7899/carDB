@@ -99,7 +99,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 		return;
 	}	
 	$row = mysqli_fetch_array($rows);
-	echo $row;
+	var_dump( $row);
 	echo '<label for="make">Make:</label>';
     echo '<input type="text" id="make" name="make" required placeholder="' . $row[make] . '" /> <br><br>';
 
