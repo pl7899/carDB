@@ -62,12 +62,6 @@ function setActiveCar(carID) {
 }
 
 function updateExitingCar(carID) {
-  var newCarMake = document.getElementById("make").value;
-  var newCarModel = document.getElementById("model").value;
-  var newCarVin = document.getElementById("vin").value;
-  var newCarRegistration = document.getElementById("registration").value;
-  var newCarYear = document.getElementById("year").value;
-  var newCarPlate = document.getElementById("license").value;
   $.post("cardb_interface.php", { action: "modify_existing_vehicle", activeCar: carID },
     function(data) {
       $('#action_output').html(data);
