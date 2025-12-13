@@ -125,7 +125,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required placeholder="' . $row['plate'] . '" /> <br>';
-    echo '<button onclick="updateExistingVehicle();">Modify Car</button>'; 
+    echo '<button onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>'; 
 }
 elseif ($_POST['action'] == "delete_vehicle")
 {
