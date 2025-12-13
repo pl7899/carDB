@@ -79,6 +79,6 @@ function pushVehicleUpdates(carID) {
   var updateCarPlate = document.getElementById("license").value;
   $.post("cardb_interface.php", { action: "push_updates_vehicle", activeCar: carID, updateMake: updateCarMake, updateModel: updateCarModel, updateVin: updateCarVin, updateRegistration: updateCarRegistration, updateYear: updateCarYear, updatePlate: updateCarPlate, updateMiles: updateCarMiles, updateImage: updateCarImage },
     function(data) {
-      $('#action_output').html(data);
+      action_select_car(carID);
     });
 }

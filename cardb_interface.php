@@ -135,7 +135,6 @@ elseif ($_POST['action'] == "push_updates_vehicle")
 {
 	$query = "UPDATE cardb_cars SET vin = '"	. $_POST['updateVin'] . "', plate = '" . $_POST['updatePlate'] . "', registration = '" . $_POST['updateRegistration'] . "', make = '" . $_POST['updateMake'] . "', year = '" . $_POST['updateYear'] . "', model = '" . $_POST['updateModel'] . "', miles = '" . $_POST['updateMiles'] . "', image = '" . $_POST['updateImage'] . "' WHERE id = '" . $_POST['activeCar']  . "';";
 	$rows = mysqli_query($db, $query);
-	action_select_car($_POST['activeCar']);
 }
 elseif ($_POST['action'] == "submit_new_maint")
 {
