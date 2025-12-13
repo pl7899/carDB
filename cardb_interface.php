@@ -108,7 +108,13 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     echo '<label for="year">Year:</label>';
     echo '<input type="number" id="year" name="year" required placeholder="' . $row['year'] . '" /> <br>';
 
-    echo '<label for="vin">VIN Number:</label>';
+    echo '<label for="year">Miles:</label>';
+    echo '<input type="number" id="miles" name="miles" required placeholder="' . $row['miles'] . '" /> <br>';
+
+	echo '<label for="year">image:</label>';
+    echo '<input type="text" id="image" name="image" required placeholder="' . $row['image'] . '" /> <br>';
+
+   echo '<label for="vin">VIN Number:</label>';
     echo '<input type="text" id="vin" name="vin" required placeholder="' . $row['vin'] . '" /> <br>';
 
     echo '<label for="registration">Registration Number:</label>';
@@ -128,55 +134,9 @@ elseif ($_POST['action'] == "delete_vehicle")
 	
 	$rows = mysqli_query($db, $query);
 }
-elseif ($_POST['action'] == "update_existing_vehicle")
+elseif ($_POST['action'] == "push_updates_vehicle")
 {
-	$everyOther = TRUE;
-	$tok = strtok($_POST['updatestring'], " =");
-	$key=$tok;
-	while ($tok !== false) {
-		$everyOther = !$everyOther;
-		if($everyOther === FALSE)
-		{
-			$key=$tok;
-		}		
-		else
-		{
-			if($key === "vin")
-			{
-				$newVin = $tok;
-			}
-			else if($key === "plate")
-			{
-				$newPlate = $tok;
-			}
-			else if($key === "registration")
-			{
-				$newRegistration = $tok;
-			}
-			else if($key === "make")
-			{
-				$newMake = $tok;
-			}
-			else if($key === "model")
-			{
-				$newModel = $tok;
-			}
-			else if($key === "miles")
-			{
-				$newMiles = $tok;
-			}
-			else if($key === "year")
-			{
-				$newYear = $tok;
-			}
-			else if($key === "image")
-			{
-				$newImage = $tok;
-			}
-		}
-		$tok = strtok(" =");
-	}
-	$query = "UPDATE cardb_cars SET vin = '"	. $newVin . "', plate = '" . $newPlate . "', registration = '" . $newRegistration . "', make = '" . $newMake . "', year = '" . $newYear . "', model = '" . $newModel . "', miles = '" . $newMiles . "', image = '" . $newImage . "' WHERE id = '" . $_POST['vehicletoupdate']  . "';";
+	$query = "UPDATE cardb_cars SET vin = '"	. $_POST['updateVin'] . "', plate = '" . $_POST['updatePlate'] . "', registration = '" . $_POST['updateRegistration'] . "', make = '" . $_POST['updateMake'] . "', year = '" . $_POST['updateYear'] . "', model = '" . $_POST['updateModel'] . "', miles = '" . $_POST['updateMiles'] . "', image = '" . $_POST['updateImage'] . "' WHERE id = '" . $_POST['carID']  . "';";
 	$rows = mysqli_query($db, $query);
 }
 elseif ($_POST['action'] == "submit_new_maint")
@@ -340,3 +300,5 @@ function printMaintTable($rows) {
 		}
 	echo "</table>";
 }
+
+
