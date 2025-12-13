@@ -118,7 +118,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     echo '<input type="text" id="registration" name="registration" required value="' . $row['registration'] . '" /> <br>';
 
     echo '<label for="mileage">Mileage:</label>';
-    echo '<input type="number" id="miles" name="miles" required value="' . $row['miles'] . '" /> <br>';
+    echo '<input type="number" id="mileage" name="mileage" required value="' . $row['miles'] . '" /> <br>';
 
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required value="' . $row['plate'] . '" /> <br>';

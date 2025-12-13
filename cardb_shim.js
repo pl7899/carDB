@@ -71,7 +71,7 @@ function updateExitingCar(carID) {
 function pushVehicleUpdates(carID) {
   var updateCarMake = document.getElementById("make").value;
   var updateCarModel = document.getElementById("model").value;
-  var updateCarMiles = document.getElementById("miles").value;
+  var updateCarMiles = document.getElementById("mileage").value;
   var updateCarVin = document.getElementById("vin").value;
   var updateCarImage = document.getElementById("image").value;
   var updateCarRegistration = document.getElementById("registration").value;
