@@ -24,10 +24,10 @@ function action_add_vehicle(make, model, vin, registration, year, plate) {
 function submit_new_vehicle(make, model, vin, registration, year, plate, name) {
   $.post("cardb_interface.php", { action: "submit_new_vehicle", make: make, model: model, vin: vin, registration: registration, year: year, plate: plate, name: name},
       function(data) {
-      $('#action_output').html(data);
+        $('#action_output').html(data);
+        vehicle_initial_button_generation();
+        action_initial_maintenance_display();
       });
-	vehicle_initial_button_generation();
-  action_initial_maintenance_display();
 }
 
 function action_select_car(vin_number) {
