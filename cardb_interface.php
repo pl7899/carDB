@@ -256,9 +256,9 @@ function printCarTable($rows, $showEditButton) {
 		echo "<td align=\"center\">" . $row['make'] . "</td>";
 		echo "<td align=\"center\">" . $row['model'] . "</td>";
 		echo "<td align=\"center\">" . $row['miles'] . "</td>";
-		echo "<td align=\"left\">" . $row['registration'] . "</td>";
-		echo "<td align=\"left\">" . $row['plate'] . "</td>";
-		echo "<td align=\"left\">" . $row['vin'] . "</td>";
+		echo "<td align=\"center\">" . $row['registration'] . "</td>";
+		echo "<td align=\"center\">" . $row['plate'] . "</td>";
+		echo "<td align=\"center\">" . $row['vin'] . "</td>";
 		if($showEditButton == 1)
 		{
 			echo "<td class=\"td-button\" onclick=\"updateExitingCar(" . $row['id'] .")\"> Edit </td>";
@@ -293,9 +293,9 @@ function printMaintTable($rows) {
 		echo "<td align=\"center\">" . $row['garage'] . "</td>";
 		echo "<td align=\"center\">" . $row['cost'] . "</td>";
 		echo "<td align=\"center\">" . $row['miles'] . "</td>";
-		echo "<td align=\"center\">" . $row['description'] . "</td>";
+		echo "<td align=\"left\">" . $row['description'] . "</td>";
 		echo "<td align=\"center\">" . $row['date'] . "</td>";
-		echo "<td align=\"center\">" . $row['notes'] . "</td>";
+		echo "<td align=\"left\">" . $row['notes'] . "</td>";
 		echo "</tr>";
 		}
 	echo "</table>";
