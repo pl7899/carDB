@@ -55,10 +55,10 @@
 </div>
 
 <hr class="lineHorizontal">   
-<div id="actionContainer" width:95%>
-  <div id="action_output" width:89%>
+<div id="actionContainer" style="background-color:aliceblue;width:95%;">
+  <div id="action_output" style="background-color:yellow;width:89%;">
   </div>
-  <div id="button_output" width:9%>
+  <div id="button_output" style="background-color:green;width:9%;">
   </div>
 </div>
 
