@@ -69,7 +69,6 @@ elseif ($_POST['action'] == "action_add_vehicle")
 }
 elseif ($_POST['action'] == "action_select_car")
 {
-
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
 	printCarTable($rows, 1);
@@ -135,6 +134,14 @@ elseif ($_POST['action'] == "push_updates_vehicle")
 {
 	$query = "UPDATE cardb_cars SET vin = '"	. $_POST['updateVin'] . "', plate = '" . $_POST['updatePlate'] . "', registration = '" . $_POST['updateRegistration'] . "', make = '" . $_POST['updateMake'] . "', year = '" . $_POST['updateYear'] . "', model = '" . $_POST['updateModel'] . "', miles = '" . $_POST['updateMiles'] . "', image = '" . $_POST['updateImage'] . "' WHERE id = '" . $_POST['activeCar']  . "';";
 	$rows = mysqli_query($db, $query);
+
+	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
+	$rows = mysqli_query($db, $query);
+	printCarTable($rows, 1);
+
+	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = '" . $_POST['activeCar'] . "';";
+	$rows = mysqli_query($db, $query);
+	printMaintTable($rows);
 }
 elseif ($_POST['action'] == "submit_new_maint")
 {
