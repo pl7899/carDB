@@ -50,8 +50,9 @@ function handleNewCarCreation() {
   var newCarRegistration = document.getElementById("registration").value;
   var newCarYear = document.getElementById("year").value;
   var newCarPlate = document.getElementById("license").value;
+  var newCarName = document.getElementById("name").value;
 
-  submit_new_vehicle(newCarMake, newCarModel, newCarVin, newCarRegistration, newCarYear, newCarPlate);
+  submit_new_vehicle(newCarMake, newCarModel, newCarVin, newCarRegistration, newCarYear, newCarPlate, newCarName);
 }
 
 function setActiveCar(carID) {
@@ -77,7 +78,8 @@ function pushVehicleUpdates(carID) {
   var updateCarRegistration = document.getElementById("registration").value;
   var updateCarYear = document.getElementById("year").value;
   var updateCarPlate = document.getElementById("license").value;
-  $.post("cardb_interface.php", { action: "push_updates_vehicle", activeCar: carID, updateMake: updateCarMake, updateModel: updateCarModel, updateVin: updateCarVin, updateRegistration: updateCarRegistration, updateYear: updateCarYear, updatePlate: updateCarPlate, updateMiles: updateCarMiles, updateImage: updateCarImage },
+  var updateCarName = document.getElementById("name").value;
+  $.post("cardb_interface.php", { action: "push_updates_vehicle", activeCar: carID, updateMake: updateCarMake, updateModel: updateCarModel, updateVin: updateCarVin, updateRegistration: updateCarRegistration, updateYear: updateCarYear, updatePlate: updateCarPlate, updateMiles: updateCarMiles, updateImage: updateCarImage, updateName: updateCarName},
     function(data) {
       $('#action_output').html(data);
       vehicle_initial_button_generation();

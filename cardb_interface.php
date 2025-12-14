@@ -12,7 +12,7 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 	$rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
 	while ($row = mysqli_fetch_array($rows)) 
 	{
-		echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px;\">" . $row['Make'] . " " . $row['model'] . "</button>";
+		echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px;\">" . $row['name'] . "</button>";
 	}
 
 }
@@ -31,7 +31,7 @@ elseif ($_POST['action'] == "action_initial_maintenance_display")
 	while ($row = mysqli_fetch_array($rows)) 
 	{
 		echo "<tr>";
-		echo "<td>" . $row['id'] ."</td>";
+		echo "<td>" . $row['name'] ."</td>";
 		echo "<td>" . $row['garage'] . "</td>";
 		echo "<td>" . $row['description'] . "</td>";
 		echo "<td>" . $row['cost'] . "</td>";
@@ -63,6 +63,9 @@ elseif ($_POST['action'] == "action_add_vehicle")
     echo '<label for="mileage">Mileage:</label>';
     echo '<input type="number" id="mileage" name="mileage" required><br><br>';
 
+    echo '<label for="name">Name:</label>';
+    echo '<input type="text" id="name" name="name" required><br><br>';
+
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required><br><br>';
     echo '<button onclick="handleNewCarCreation();">Create Car</button>'; 
@@ -83,9 +86,7 @@ elseif ($_POST['action'] == "action_administration")
 }
 elseif ($_POST['action'] == "submit_new_vehicle")
 {
-	echo "submit new vehicle as : '" . $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['image'] . "'";
-	
-	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `year`, `image`) VALUES ('"	. $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['year'] . "', '" . $_POST['image'] ."');";
+	$query = "INSERT INTO `cardb_cars` (`vin`, `plate`, `registration`, `make`, `model`, `miles`, `year`, `image`, `name`) VALUES ('"	. $_POST['vin'] . "', '" . $_POST['plate'] . "', '" . $_POST['registration'] . "', '" . $_POST['make'] . "', '" . $_POST['model'] . "', '" . $_POST['miles'] . "', '" . $_POST['year'] . "', '" . $_POST['image'] . "', '" . $_POST['name']	."');";
 	
 	$rows = mysqli_query($db, $query);
 }
@@ -98,6 +99,10 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 		return;
 	}	
 	$row = mysqli_fetch_array($rows);
+	echo '<label for="name">Name:</label>';
+    echo '<input type="text" id="name" name="name" required value="' . $row['name'] . '" /> <br>';
+
+
 	echo '<label for="make">Make:</label>';
     echo '<input type="text" id="make" name="make" required value="' . $row['make'] . '" /> <br>';
 
@@ -132,7 +137,7 @@ elseif ($_POST['action'] == "delete_vehicle")
 }
 elseif ($_POST['action'] == "push_updates_vehicle")
 {
-	$query = "UPDATE cardb_cars SET vin = '"	. $_POST['updateVin'] . "', plate = '" . $_POST['updatePlate'] . "', registration = '" . $_POST['updateRegistration'] . "', make = '" . $_POST['updateMake'] . "', year = '" . $_POST['updateYear'] . "', model = '" . $_POST['updateModel'] . "', miles = '" . $_POST['updateMiles'] . "', image = '" . $_POST['updateImage'] . "' WHERE id = '" . $_POST['activeCar']  . "';";
+	$query = "UPDATE cardb_cars SET vin = '"	. $_POST['updateVin'] . "', plate = '" . $_POST['updatePlate'] . "', registration = '" . $_POST['updateRegistration'] . "', make = '" . $_POST['updateMake'] . "', year = '" . $_POST['updateYear'] . "', model = '" . $_POST['updateModel'] . "', miles = '" . $_POST['updateMiles'] . "', image = '" . $_POST['updateImage'] . "', name = '" . $_POST['updateName'] .	"' WHERE id = '" . $_POST['activeCar']  . "';";
 	$rows = mysqli_query($db, $query);
 
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
@@ -231,6 +236,7 @@ else
 function printCarTable($rows, $showEditButton) {
 	echo "<table id=\"carTable\" style=\"width:95%\"> 
 	<tr> 
+	<th width=\"10%\"> name </th> 
 	<th width=\"10%\"> Year </th> 
 	<th width=\"15%\"> Model</th> 
 	<th width=\"10%\"> Make</th> 
@@ -252,6 +258,7 @@ function printCarTable($rows, $showEditButton) {
 	while ($row = mysqli_fetch_array($rows)) {
 		//var_dump ($row);
 		echo "<tr>";
+		echo "<td align=\"center\">" . $row['name'] . "</td>";
 		echo "<td align=\"center\">" . $row['year'] . "</td>";
 		echo "<td align=\"center\">" . $row['make'] . "</td>";
 		echo "<td align=\"center\">" . $row['model'] . "</td>";
