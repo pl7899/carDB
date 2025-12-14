@@ -82,3 +82,4 @@ function pushVehicleUpdates(carID) {
       $('#action_output').html(data);
     });
 }
+
