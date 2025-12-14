@@ -80,11 +80,7 @@ function pushVehicleUpdates(carID) {
   $.post("cardb_interface.php", { action: "push_updates_vehicle", activeCar: carID, updateMake: updateCarMake, updateModel: updateCarModel, updateVin: updateCarVin, updateRegistration: updateCarRegistration, updateYear: updateCarYear, updatePlate: updateCarPlate, updateMiles: updateCarMiles, updateImage: updateCarImage },
     function(data) {
       $('#action_output').html(data);
+      vehicle_initial_button_generation();
     });
-    
-    $.post("cardb_interface.php", { action: "vehicle_initial_button_generation" },
-      function(data) {
-        $('#vehicle_output').html(data);
-      });
 }
 
