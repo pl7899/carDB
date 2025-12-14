@@ -229,9 +229,8 @@ else
 }
 
 function printCarTable($rows, $showEditButton) {
-	echo "<table id=\"carTable\"> 
+	echo "<table id=\"carTable\" style=\"width:80%\"> 
 	<tr> 
-	<th width=\"5%\"> ID </th> 
 	<th width=\"10%\"> Year </th> 
 	<th width=\"15%\"> Model</th> 
 	<th width=\"10%\"> Make</th> 
@@ -253,7 +252,6 @@ function printCarTable($rows, $showEditButton) {
 	while ($row = mysqli_fetch_array($rows)) {
 		//var_dump ($row);
 		echo "<tr>";
-		echo "<td align=\"center\"> " . $row['id'] . "</td>";
 		echo "<td align=\"center\">" . $row['year'] . "</td>";
 		echo "<td align=\"center\">" . $row['make'] . "</td>";
 		echo "<td align=\"center\">" . $row['model'] . "</td>";
@@ -273,8 +271,7 @@ function printCarTable($rows, $showEditButton) {
 
 function printMaintTable($rows) {
 
-	echo "<table id=\"maintTable\"> <tr> 
-	<th width=\"5%\"> ID </th> 
+	echo "<table id=\"maintTable\" style=\"width:80%\"> <tr> 
 	<th width=\"10%\"> vin </th> 
 	<th width=\"10%\"> garage</th> 
 	<th width=\"5%\"> cost </th>
@@ -291,8 +288,7 @@ function printMaintTable($rows) {
 	}
 	while ($row = mysqli_fetch_array($rows)) {
 		//var_dump ($row);
-		echo "<tr " . $row['id'] . ", null)\">";
-		echo "<td align=\"center\"> " . $row['id'] . "</td>";
+		echo "<tr>";
 		echo "<td align=\"center\">" . $row['vin'] . "</td>";
 		echo "<td align=\"center\">" . $row['garage'] . "</td>";
 		echo "<td align=\"center\">" . $row['cost'] . "</td>";
