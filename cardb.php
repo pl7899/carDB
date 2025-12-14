@@ -55,9 +55,11 @@
 </div>
 
 <hr class="lineHorizontal">   
-
-<div id="action_output">
-
+<div id="actionContainer" width:95%>
+  <div id="action_output" width:89%>
+  </div>
+  <div id="button_output" width:9%>
+  </div>
 </div>
 
 <script>
