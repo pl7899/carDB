@@ -81,5 +81,10 @@ function pushVehicleUpdates(carID) {
     function(data) {
       $('#action_output').html(data);
     });
+    
+    $.post("cardb_interface.php", { action: "vehicle_initial_button_generation" },
+      function(data) {
+        $('#vehicle_output').html(data);
+      });
 }
 
