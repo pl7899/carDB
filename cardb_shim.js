@@ -2,14 +2,14 @@
 function vehicle_initial_button_generation() {
     $.post("cardb_interface.php", { action: "vehicle_initial_button_generation" },
         function(data) {
-    		$('#vehicle_output').html(data);
+      		$('#vehicle_output').html(data);
         });
 }
 
 function action_initial_maintenance_display() {
     $.post("cardb_interface.php", { action: "action_initial_maintenance_display" },
         function(data) {
-    		$('#action_output').html(data);
+      		$('#action_output').html(data);
         });
 }
 
@@ -21,6 +21,13 @@ function action_add_vehicle(make, model, vin, registration, year, plate) {
         });
 }
 
+function action_show_new_maintenance_entry() {
+  $.post("cardb_interface.php", { action: "show_new_maintenance_entry" },
+      function(data) {
+         $('#action_output').html(data);
+      });
+}
+
 function submit_new_vehicle(make, model, vin, registration, year, plate, name) {
   $.post("cardb_interface.php", { action: "submit_new_vehicle", make: make, model: model, vin: vin, registration: registration, year: year, plate: plate, name: name},
       function(data) {
@@ -30,17 +37,25 @@ function submit_new_vehicle(make, model, vin, registration, year, plate, name) {
       });
 }
 
+function submit_new_maintenance(make, model, vin, registration, year, plate, name) {
+  $.post("cardb_interface.php", { action: "submit_new_maintenance", make: make, model: model, vin: vin, registration: registration, year: year, plate: plate, name: name},
+      function(data) {
+        $('#action_output').html(data);
+        action_select_car();
+      });
+}
+
 function action_select_car(vin_number) {
     $.post("cardb_interface.php", { action: "action_select_car", vin: vin_number },
         function(data) {
-    		$('#action_output').html(data);
+      		$('#action_output').html(data);
         });
 }
 
 function action_administration() {
     $.post("cardb_interface.php", { action: "action_administration" },
         function(data) {
-    		$('#action_output').html(data);
+      		$('#action_output').html(data);
         });
 }
 
@@ -56,11 +71,26 @@ function handleNewCarCreation() {
   submit_new_vehicle(newCarMake, newCarModel, newCarVin, newCarRegistration, newCarYear, newCarPlate, newCarName);
 }
 
+function handleNewMaintCreation() {
+  var newMaintDescription = document.getElementById("description").value;
+  var newMaintGarage = document.getElementById("garage").value;
+  var newMaintMiles = document.getElementById("miles").value;
+  var newMaintNotes = document.getElementById("notes").value;
+  var newMaintCost = document.getElementById("cost").value;
+
+  submit_new_maintenance(newMaintDescription, newMaintGarage, newMaintMiles, newMaintNotes, newMaintCost);
+}
+
 function setActiveCar(carID) {
   $.post("cardb_interface.php", { action: "action_select_car", activeCar: carID },
     function(data) {
       $('#action_output').html(data);
     });
+
+    $.post("cardb_interface.php", { action: "add_buttons_for_car", activeCar: carID },
+      function(data) {
+        $('#button_output').html(data);
+      });
 }
 
 function updateExitingCar(carID) {

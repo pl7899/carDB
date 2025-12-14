@@ -128,6 +128,20 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     echo '<input type="text" id="license" name="license" required value="' . $row['plate'] . '" /> <br>';
     echo '<button onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>'; 
 }
+elseif ($_POST['action'] == "show_new_maintenance_entry")
+{
+    echo '<label for="description">Description:</label>';
+    echo '<input type="text" id="description" name="description" required><br>';
+    echo '<label for="garage">Garage:</label>';
+    echo '<input type="text" id="garage" name="garage" required><br>';
+    echo '<label for="miles">Miles:</label>';
+    echo '<input type="miles" id="miles" name="miles" required><br>';
+    echo '<label for="notes">Notes:</label>';
+    echo '<input type="text" id="notes" name="notes" required><br>';
+    echo '<label for="cost">Cost:</label>';
+    echo '<input type="text" id="cost" name="cost" required><br>';
+    echo '<button onclick="handleNewMaintCreation();">Create Car</button>'; 
+}
 elseif ($_POST['action'] == "delete_vehicle")
 {
 	echo "delete vehicle : '" . $_POST['id'] . "'";
@@ -161,6 +175,10 @@ elseif ($_POST['action'] == "delete_maint")
 	$query = "DELETE FROM `cardb_maint` WHERE `id` = '" . $_POST['id'] ."';";
 	
 	$rows = mysqli_query($db, $query);
+}
+elseif ($_POST['action'] == "add_buttons_for_car")
+{
+	echo "<button onclick=\"action_show_new_maintenance_entry()\" style=\"width: 200px; height: 150px;\">Record Maintenance</button>";
 }
 elseif ($_POST['action'] == "update_existing_maint")
 {
