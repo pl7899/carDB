@@ -164,7 +164,7 @@ elseif ($_POST['action'] == "push_updates_vehicle")
 }
 elseif ($_POST['action'] == "submit_new_maintenance")
 {
-	$query = "INSERT INTO `cardb_maint` (`description`, `garage`, `cost`, `miles`, `notes`) VALUES (`" . $_POST['description'] . "', '" . $_POST['garage'] . "', '" . $_POST['cost'] . "', '" . $_POST['miles'] . "', '" . $_POST['notes'] ."');";
+	$query = "INSERT INTO `cardb_maint` (`description`, `garage`, `cost`, `miles`, `notes`) VALUES ('" . $_POST['description'] . "', '" . $_POST['garage'] . "', '" . $_POST['cost'] . "', '" . $_POST['miles'] . "', '" . $_POST['notes'] ."');";
 	echo $query;
 	
 	$rows = mysqli_query($db, $query);
