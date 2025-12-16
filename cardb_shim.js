@@ -1,3 +1,4 @@
+var activeCar = "";
 
 function vehicle_initial_button_generation() {
     $.post("cardb_interface.php", { action: "vehicle_initial_button_generation" },
@@ -79,10 +80,11 @@ function handleNewMaintCreation() {
   var newMaintCost = document.getElementById("cost").value;
   const newMaintDate = document.getElementById('date').value; // Collect the date value
 
-  submit_new_maintenance(newMaintDescription, newMaintGarage, newMaintMiles, newMaintNotes, newMaintCost, newMaintDate);
+  submit_new_maintenance(activeCar, newMaintDescription, newMaintGarage, newMaintMiles, newMaintNotes, newMaintCost, newMaintDate);
 }
 
 function setActiveCar(carID) {
+  activeCar = carID;
   $.post("cardb_interface.php", { action: "action_select_car", activeCar: carID },
     function(data) {
       $('#action_output').html(data);

@@ -5,7 +5,6 @@ include('div_admin.php');
 include('div_carlog.php');
 
 $db = db_connect();
-$activeCar = 0;
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
 {
@@ -15,7 +14,6 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 	{
 		echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px;\">" . $row['name'] . "</button>";
 	}
-
 }
 elseif ($_POST['action'] == "outputTest")
 {
@@ -104,7 +102,6 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 	echo '<label for="name">Name:</label>';
     echo '<input type="text" id="name" name="name" required value="' . $row['name'] . '" /> <br>';
 
-
 	echo '<label for="make">Make:</label>';
     echo '<input type="text" id="make" name="make" required value="' . $row['make'] . '" /> <br>';
 
@@ -168,7 +165,7 @@ elseif ($_POST['action'] == "push_updates_vehicle")
 }
 elseif ($_POST['action'] == "submit_new_maintenance")
 {
-    $query = "INSERT INTO `cardb_maint` (`vehicleID`, `description`, `garage`, `cost`, `miles`, `notes`, `date`) VALUES ('" . $activeCar  . "', '" . $_POST['description'] . "', '" . $_POST['garage'] . "', '" . $_POST['cost'] . "', '" . $_POST['miles'] . "', '" . $_POST['notes'] . "', '" . $_POST['date'] . "');";
+    $query = "INSERT INTO `cardb_maint` (`vehicleID`, `description`, `garage`, `cost`, `miles`, `notes`, `date`) VALUES ('" . $_POST['activeCar']  . "', '" . $_POST['description'] . "', '" . $_POST['garage'] . "', '" . $_POST['cost'] . "', '" . $_POST['miles'] . "', '" . $_POST['notes'] . "', '" . $_POST['date'] . "');";
 	echo $query;
 	
 	$rows = mysqli_query($db, $query);
