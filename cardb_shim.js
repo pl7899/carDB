@@ -37,8 +37,8 @@ function submit_new_vehicle(make, model, vin, registration, year, plate, name) {
       });
 }
 
-function submit_new_maintenance(newDescription, newGarage, newMiles, newNotes, newCost) {
-  $.post("cardb_interface.php", { action: "submit_new_maintenance", description: newDescription, garage: newGarage, miles: newMiles, notes: newNotes, cost: newCost },
+function submit_new_maintenance(newDescription, newGarage, newMiles, newNotes, newCost, newDate) {
+  $.post("cardb_interface.php", { action: "submit_new_maintenance", description: newDescription, garage: newGarage, miles: newMiles, notes: newNotes, cost: newCost, date: newDate },
       function(data) {
         $('#action_output').html(data);
         action_select_car();
@@ -77,8 +77,9 @@ function handleNewMaintCreation() {
   var newMaintMiles = document.getElementById("miles").value;
   var newMaintNotes = document.getElementById("notes").value;
   var newMaintCost = document.getElementById("cost").value;
+  const newMaintDate = document.getElementById('date').value; // Collect the date value
 
-  submit_new_maintenance(newMaintDescription, newMaintGarage, newMaintMiles, newMaintNotes, newMaintCost);
+  submit_new_maintenance(newMaintDescription, newMaintGarage, newMaintMiles, newMaintNotes, newMaintCost, newMaintDate);
 }
 
 function setActiveCar(carID) {

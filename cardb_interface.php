@@ -135,11 +135,13 @@ elseif ($_POST['action'] == "show_new_maintenance_entry")
     echo '<label for="garage">Garage:</label>';
     echo '<input type="text" id="garage" name="garage" required><br>';
     echo '<label for="miles">Miles:</label>';
-    echo '<input type="miles" id="miles" name="miles" required><br>';
+    echo '<input type="number" id="miles" name="miles" required><br>';
     echo '<label for="notes">Notes:</label>';
     echo '<input type="text" id="notes" name="notes" required><br>';
     echo '<label for="cost">Cost:</label>';
     echo '<input type="text" id="cost" name="cost" required><br>';
+    echo '<label for="date">Date:</label>';
+    echo '<input type="date" id="date" name="date" required><br>'; // Add date picker
     echo '<button onclick="handleNewMaintCreation();">Create Maintenance</button>'; 
 }
 elseif ($_POST['action'] == "delete_vehicle")
@@ -164,7 +166,7 @@ elseif ($_POST['action'] == "push_updates_vehicle")
 }
 elseif ($_POST['action'] == "submit_new_maintenance")
 {
-	$query = "INSERT INTO `cardb_maint` (`description`, `garage`, `cost`, `miles`, `notes`) VALUES ('" . $_POST['description'] . "', '" . $_POST['garage'] . "', '" . $_POST['cost'] . "', '" . $_POST['miles'] . "', '" . $_POST['notes'] ."');";
+    $query = "INSERT INTO `cardb_maint` (`description`, `garage`, `cost`, `miles`, `notes`, `date`) VALUES ('" . $_POST['description'] . "', '" . $_POST['garage'] . "', '" . $_POST['cost'] . "', '" . $_POST['miles'] . "', '" . $_POST['notes'] . "', '" . $_POST['date'] . "');";
 	echo $query;
 	
 	$rows = mysqli_query($db, $query);
