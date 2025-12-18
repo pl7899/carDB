@@ -298,7 +298,6 @@ function printCarTable($rows, $showEditButton) {
 function printMaintTable($rows) {
 
 	echo "<table id=\"maintTable\" style=\"width:95%\"> <tr> 
-	<th width=\"10%\"> vin </th> 
 	<th width=\"10%\"> garage</th> 
 	<th width=\"5%\"> cost </th>
 	<th width=\"10%\"> miles </th>
@@ -315,7 +314,6 @@ function printMaintTable($rows) {
 	while ($row = mysqli_fetch_array($rows)) {
 		//var_dump ($row);
 		echo "<tr>";
-		echo "<td align=\"center\">" . $row['vin'] . "</td>";
 		echo "<td align=\"center\">" . $row['garage'] . "</td>";
 		echo "<td align=\"center\">" . $row['cost'] . "</td>";
 		echo "<td align=\"center\">" . $row['miles'] . "</td>";
