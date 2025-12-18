@@ -80,7 +80,7 @@ function handleNewMaintCreation() {
   var newMaintCost = document.getElementById("cost").value;
   const newMaintDate = document.getElementById('date').value; // Collect the date value
 
-  submit_new_maintenance(activeCar, newMaintDescription, newMaintGarage, newMaintMiles, newMaintNotes, newMaintCost, newMaintDate);
+  submit_new_maintenance(newMaintDescription, newMaintGarage, newMaintMiles, newMaintNotes, newMaintCost, newMaintDate);
 }
 
 function setActiveCar(carID) {
