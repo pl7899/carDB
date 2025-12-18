@@ -39,7 +39,7 @@ function submit_new_vehicle(make, model, vin, registration, year, plate, name) {
 }
 
 function submit_new_maintenance(newDescription, newGarage, newMiles, newNotes, newCost, newDate) {
-  $.post("cardb_interface.php", { action: "submit_new_maintenance", description: newDescription, garage: newGarage, miles: newMiles, notes: newNotes, cost: newCost, date: newDate },
+  $.post("cardb_interface.php", { action: "submit_new_maintenance", description: newDescription, garage: newGarage, miles: newMiles, notes: newNotes, cost: newCost, date: newDate, activeCar: activeCar },
       function(data) {
         $('#action_output').html(data);
         action_select_car();
