@@ -9,7 +9,7 @@
 <style>
   .image-container {
     display: flex;
-    height: 150px;             /* Fixed height for container */
+    height: 200px;             /* Fixed height for container */
     gap: 18px;                  /* Space between images */
   }
   .image-container img {
