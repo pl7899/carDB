@@ -8,12 +8,14 @@ $db = db_connect();
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
 {
-	echo "<button onclick=\"action_add_vehicle()\" style=\"width: 200px; height: 150px;\">Add a Car</button>";
-	$rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
-	while ($row = mysqli_fetch_array($rows)) 
-	{
-		echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px;\">" . $row['name'] . "</button>";
-	}
+    echo "<button onclick=\"action_add_vehicle()\" style=\"width: 200px; height: 150px;\">Add a Car</button>";
+    $rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
+    while ($row = mysqli_fetch_array($rows)) 
+    {
+        // Assuming each car has an image URL stored in the 'image' column
+        $imageUrl = $row['image']; // Replace 'image' with the correct column name for the image URL
+        echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\">" . $row['name'] . "</button>";
+    }
 }
 elseif ($_POST['action'] == "outputTest")
 {
