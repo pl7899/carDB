@@ -265,7 +265,7 @@ else
 	echo 'no command';
 }
 
-function printCarTable($rows, $showEditButton) {
+function printCarTableWithHeader($rows, $showEditButton) {
 	echo "<table id=\"carTable\" > 
 	<tr> 
 	<th width=\"10%\"> name </th> 
@@ -300,6 +300,32 @@ function printCarTable($rows, $showEditButton) {
 		if($showEditButton == 1)
 		{
 			echo "<td class=\"td-button\" onclick=\"updateExitingCar(" . $row['id'] .")\"> Edit </td>";
+		}
+	
+		echo "</tr>";
+		}
+	echo "</table>";
+}
+
+function printCarTable($rows, $showEditButton) {
+	if($rows == null)
+	{
+		echo "</table>";
+		return;
+	}
+	while ($row = mysqli_fetch_array($rows)) {
+		echo "<tr class=\"carTable\">";
+		echo "<th align=\"center\">" . $row['name'] . "</th>";
+		echo "<th align=\"center\">" . $row['year'] . "</th>";
+		echo "<th align=\"center\">" . $row['make'] . "</th>";
+		echo "<th align=\"center\">" . $row['model'] . "</th>";
+		echo "<th align=\"center\">" . $row['miles'] . "</th>";
+		echo "<th align=\"center\">" . $row['registration'] . "</th>";
+		echo "<th align=\"center\">" . $row['plate'] . "</th>";
+		echo "<th align=\"center\">" . $row['vin'] . "</th>";
+		if($showEditButton == 1)
+		{
+			echo "<th class=\"td-button\" onclick=\"updateExitingCar(" . $row['id'] .")\"> Edit </th>";
 		}
 	
 		echo "</tr>";
