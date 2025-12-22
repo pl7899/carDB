@@ -49,8 +49,8 @@ body {
 }
 
 .lineHorizontal {
-    border-top: 1px solid var(--fl2); /* Added 'solid' for the border style */
-    border-bottom: 1px solid var(--fl2); /* Added 'solid' for the border style */
+    border-top: 2px solid var(--fl2); /* Top border */
+    border-bottom: 2px solid var(--fl2); /* Bottom border */
     width: 100%;
     height: 5px;
 }
@@ -97,4 +97,16 @@ table tr:nth-child(even) {
 
 .flex-child-element:first-child {
     margin-right: 20px;
+}
+
+.carTable {
+    width: 100%;
+    text-align: left;
+    background-color: var(--fl1_rv);
+    border-collapse: collapse;
+}
+
+.carTable th {
+    background: var(--hr2_rv);
+    color: var(--hr2);
 }

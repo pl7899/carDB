@@ -288,7 +288,7 @@ function printCarTable($rows, $showEditButton) {
 		return;
 	}
 	while ($row = mysqli_fetch_array($rows)) {
-		echo "<tr>";
+		echo "<tr class=\"carTable\">";
 		echo "<td align=\"center\">" . $row['name'] . "</td>";
 		echo "<td align=\"center\">" . $row['year'] . "</td>";
 		echo "<td align=\"center\">" . $row['make'] . "</td>";
