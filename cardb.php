@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Responsive Image Container</title>
+<title>CarDB</title>
+<link rel="stylesheet" type="text/css" href="formatting.css"> </link>
 
 <style>
   .image-container {
