@@ -14,7 +14,14 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
     {
         // Assuming each car has an image URL stored in the 'image' column
         $imageUrl = $row['image']; // Replace 'image' with the correct column name for the image URL
-        echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\">" . $row['name'] . "</button>";
+
+        // Check if the image URL is valid
+        if (!empty($imageUrl)) {
+            echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\"></button>";
+        } else {
+            // Fallback to showing the name if no valid image is available
+            echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px;\">" . $row['name'] . "</button>";
+        }
     }
 }
 elseif ($_POST['action'] == "outputTest")
