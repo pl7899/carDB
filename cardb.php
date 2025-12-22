@@ -42,6 +42,23 @@
   table tr:nth-child(even) {
     background:#FF0;
   }
+
+  .flex-parent-element {
+  display: flex;
+  width: 50%;
+ }
+
+  .flex-child-element {
+    flex: 1;
+    border: 2px solid blueviolet;
+    margin: 10px;
+    width: 9%
+  }
+
+  .flex-child-element:first-child {
+    margin-right: 20px;
+    width: 89%
+  }
 </style>
 
 </head>
@@ -55,11 +72,9 @@
 </div>
 
 <hr class="lineHorizontal">   
-<div id="actionContainer" style="background-color:aliceblue;width:95%;">
-  <div id="action_output" style="background-color:yellow;width:89%;">
-  </div>
-  <div id="button_output" style="background-color:green;width:9%;">
-  </div>
+<div id="actionContainer" class="flex-parent-element">
+  <div id="action_output" class="flex-child-element"> </div>
+  <div id="button_output" class="flex-child-element"> </div>
 </div>
 
 <script>
