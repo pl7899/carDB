@@ -45,19 +45,18 @@
 
   .flex-parent-element {
   display: flex;
-  width: 50%;
+  width: 95%;
  }
 
   .flex-child-element {
     flex: 1;
     border: 2px solid blueviolet;
     margin: 10px;
-    width: 9%
   }
 
   .flex-child-element:first-child {
     margin-right: 20px;
-    width: 89%
+    width: 90%
   }
 </style>
 

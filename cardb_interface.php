@@ -253,7 +253,7 @@ else
 }
 
 function printCarTable($rows, $showEditButton) {
-	echo "<table id=\"carTable\" style=\"width:95%\"> 
+	echo "<table id=\"carTable\" > 
 	<tr> 
 	<th width=\"10%\"> name </th> 
 	<th width=\"10%\"> Year </th> 
@@ -297,7 +297,7 @@ function printCarTable($rows, $showEditButton) {
 
 function printMaintTable($rows) {
 
-	echo "<table id=\"maintTable\" style=\"width:95%\"> <tr> 
+	echo "<table id=\"maintTable\"> <tr> 
 	<th width=\"10%\"> garage</th> 
 	<th width=\"5%\"> cost </th>
 	<th width=\"10%\"> miles </th>
