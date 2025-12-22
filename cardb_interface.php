@@ -192,7 +192,7 @@ elseif ($_POST['action'] == "add_button_for_maintenance")
 }
 elseif ($_POST['action'] == "add_button_for_car_update")
 {
-	echo "<button onclick=\"action_show_new_maintenance_entry()\" style=\"width: 200px; height: 150px;\">Update This Car</button>";
+	echo "<button onclick=\"updateExitingCar()\" style=\"width: 200px; height: 150px;\">Update This Car</button>";
 }
 elseif ($_POST['action'] == "update_existing_maint")
 {
