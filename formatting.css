@@ -100,6 +100,11 @@ body {
     flex: 1;
     border: 2px solid var(--fl1_rv);
     margin: 10px;
+
+    /* Center content inside the div */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
 }
 
 .flex-child-element:first-child {
