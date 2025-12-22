@@ -56,7 +56,6 @@
 
   .flex-child-element:first-child {
     margin-right: 20px;
-    width: 90%
   }
 </style>
 
@@ -72,8 +71,9 @@
 
 <hr class="lineHorizontal">   
 <div id="actionContainer" class="flex-parent-element">
-  <div id="action_output" class="flex-child-element"> </div>
-  <div id="button_output" class="flex-child-element"> </div>
+  <div id="action_output" class="flex-child-element" style="flex-grow: 4;"> </div>
+  <div id="button_output" class="flex-child-element style="flex-grow: 1;""> </div>
+  <div id="sidemargin_output" class="flex-child-element style="flex-grow: 1;""> </div>
 </div>
 
 <script>
