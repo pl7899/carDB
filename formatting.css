@@ -67,6 +67,13 @@ body {
     background: #45a049;
 }
 
+.maintTable {
+    width: 100%;
+    text-align: left;
+    background-color: var(--fl1_rv);
+    border-collapse: collapse;
+}
+
 .maintTable th {
     background: var(--hr2);
     color: var(--hr2_rv);
