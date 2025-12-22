@@ -21,8 +21,8 @@
 
 <div id="actionContainer" class="flex-parent-element">
   <div id="action_output" class="flex-child-element" style="flex-grow: 4;"> </div>
-  <div id="button_output" class="flex-child-element style="flex-grow: 1;""> </div>
-  <div id="sidemargin_output" class="flex-child-element style="flex-grow: 1;""> </div>
+  <div id="button_output" class="flex-child-element" style="flex-grow: 1;"> </div>
+  <div id="sidemargin_output" class="flex-child-element" style="flex-grow: 1;"> </div>
 </div>
 
 <script>
