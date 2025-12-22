@@ -332,6 +332,7 @@ function printCarTable($rows, $showEditButton) {
 		echo "</tr>";
 		}
 	echo "</table>";
+	echo "<br><br>";
 }
 
 function printMaintTable($rows) {
