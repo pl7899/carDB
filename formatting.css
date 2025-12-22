@@ -78,7 +78,7 @@ body {
     background: var(--hr2);
     color: var(--hr2_rv);
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 .maintTable tr:nth-child(odd) {
@@ -109,11 +109,11 @@ body {
 .carTable {
     width: 100%;
     text-align: left;
-    background-color: var(--fl1_rv);
+    background-color: var(--bi_rv);
     border-collapse: collapse;
 }
 
 .carTable th {
-    background: var(--hr2_rv);
-    color: var(--hr2);
+    background: var(--bi_rv);
+    color: var(--bi);
 }
