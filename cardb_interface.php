@@ -284,7 +284,6 @@ function printCarTable($rows, $showEditButton) {
 		return;
 	}
 	while ($row = mysqli_fetch_array($rows)) {
-		//var_dump ($row);
 		echo "<tr>";
 		echo "<td align=\"center\">" . $row['name'] . "</td>";
 		echo "<td align=\"center\">" . $row['year'] . "</td>";
@@ -313,7 +312,6 @@ function printMaintTable($rows) {
 	<th width=\"25%\"> description </th>
 	<th width=\"10%\"> date</th>
 	<th width=\"25%\"> notes</th>
-	
 	";
 	if($rows == null)
 	{
@@ -321,7 +319,6 @@ function printMaintTable($rows) {
 		return;
 	}
 	while ($row = mysqli_fetch_array($rows)) {
-		//var_dump ($row);
 		echo "<tr>";
 		echo "<td align=\"center\">" . $row['garage'] . "</td>";
 		echo "<td align=\"center\">" . $row['cost'] . "</td>";

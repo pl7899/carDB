@@ -67,12 +67,21 @@ body {
     background: #45a049;
 }
 
+table th {
+    background: var(--hr2);
+    color: var(--hr2_rv);
+    padding: 8px;
+    text-align: left;
+}
+
 table tr:nth-child(odd) {
     background: var(--hr1_rv);
+    color: var(--hr1);
 }
 
 table tr:nth-child(even) {
     background: var(--hr2_rv);
+    color: var(--hr2);
 }
 
 .flex-parent-element {
