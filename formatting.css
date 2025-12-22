@@ -125,6 +125,7 @@ body {
 }
 
 .carTable th {
+    font-size: 18px;
     background: var(--bi_rv);
     color: var(--bi);
 }

@@ -308,6 +308,7 @@ function printCarTableWithHeader($rows, $showEditButton) {
 }
 
 function printCarTable($rows, $showEditButton) {
+	echo "<br>";
 	echo "<table class=\"carTable\" id=\"carTable\" > ";
 	if($rows == null)
 	{
