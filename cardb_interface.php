@@ -308,14 +308,14 @@ function printCarTableWithHeader($rows, $showEditButton) {
 }
 
 function printCarTable($rows, $showEditButton) {
-	echo "<table id=\"carTable\" > ";
+	echo "<table class=\"carTable\" id=\"carTable\" > ";
 	if($rows == null)
 	{
 		echo "</table>";
 		return;
 	}
 	while ($row = mysqli_fetch_array($rows)) {
-		echo "<tr class=\"carTable\">";
+		echo "<tr>";
 		echo "<th align=\"center\">" . $row['name'] . "</th>";
 		echo "<th align=\"center\">" . $row['year'] . "</th>";
 		echo "<th align=\"center\">" . $row['make'] . "</th>";
@@ -336,7 +336,7 @@ function printCarTable($rows, $showEditButton) {
 
 function printMaintTable($rows) {
 
-	echo "<table id=\"maintTable\"> <tr> 
+	echo "<table class=\"maintTable\" id=\"maintTable\"> <tr> 
 	<th width=\"10%\"> garage</th> 
 	<th width=\"5%\"> cost </th>
 	<th width=\"10%\"> miles </th>
