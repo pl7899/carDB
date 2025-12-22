@@ -83,7 +83,7 @@ elseif ($_POST['action'] == "action_select_car")
 	$activeCar = $_POST['activeCar'];
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
-	printCarTable($rows, 1);
+	printCarTable($rows, 0);
 
 	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
@@ -166,7 +166,7 @@ elseif ($_POST['action'] == "push_updates_vehicle")
 
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
-	printCarTable($rows, 1);
+	printCarTable($rows, 0);
 
 	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
