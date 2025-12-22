@@ -8,7 +8,7 @@ $db = db_connect();
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
 {
-    echo "<button onclick=\"action_add_vehicle()\" style=\"width: 200px; height: 150px;\">Add a Car</button>";
+    echo "<button onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px;\">Add a Car</button>";
     $rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
     while ($row = mysqli_fetch_array($rows)) 
     {
@@ -17,10 +17,10 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 
         // Check if the image URL is valid
         if (!empty($imageUrl)) {
-            echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\"></button>";
+            echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 250px; height: 200px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\"></button>";
         } else {
             // Fallback to showing the name if no valid image is available
-            echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 200px; height: 150px;\">" . $row['name'] . "</button>";
+            echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 250px; height: 200px;\">" . $row['name'] . "</button>";
         }
     }
 }
