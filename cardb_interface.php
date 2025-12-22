@@ -186,9 +186,13 @@ elseif ($_POST['action'] == "delete_maint")
 	
 	$rows = mysqli_query($db, $query);
 }
-elseif ($_POST['action'] == "add_buttons_for_car")
+elseif ($_POST['action'] == "add_button_for_maintenance")
 {
 	echo "<button onclick=\"action_show_new_maintenance_entry()\" style=\"width: 200px; height: 150px;\">Record Maintenance</button>";
+}
+elseif ($_POST['action'] == "add_button_for_car_update")
+{
+	echo "<button onclick=\"action_show_new_maintenance_entry()\" style=\"width: 200px; height: 150px;\">Update This Car</button>";
 }
 elseif ($_POST['action'] == "update_existing_maint")
 {

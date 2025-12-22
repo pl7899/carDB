@@ -90,9 +90,14 @@ function setActiveCar(carID) {
       $('#action_output').html(data);
     });
 
-    $.post("cardb_interface.php", { action: "add_buttons_for_car", activeCar: carID },
+    $.post("cardb_interface.php", { action: "add_button_for_maintenance", activeCar: carID },
       function(data) {
         $('#button_output').html(data);
+      });
+
+    $.post("cardb_interface.php", { action: "add_button_for_car_update", activeCar: carID },
+      function(data) {
+        $('#sidemargin_output').html(data);
       });
 }
 
