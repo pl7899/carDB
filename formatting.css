@@ -1,36 +1,91 @@
-:root {	
-    --it:       #EEC3CA;   
+:root {
+    --it:       #EEC3CA;
     --it_rv:    #113C35;
-    --bi:       #FFE8F1;        
+    --bi:       #FFE8F1;
     --bi_rv:    #00170E;
-    --bi2:      #FCD1D8;        
+    --bi2:      #FCD1D8;
     --bi2_rv:   #032E27;
-    --ey:       #574042;       
+    --ey:       #574042;
     --ey_rv:    #A8BFBD;
-    --fl1:      #FEC3B3;       
+    --fl1:      #FEC3B3;
     --fl1_rv:   #013C4C;
-    --fl2:      #BF8172;       
+    --fl2:      #BF8172;
     --fl2_rv:   #407E8D;
-    --tn1:      #833D45;       
+    --tn1:      #833D45;
     --tn1_rv:   #7CC2BA;
-    --hr1:      #694339;       
+    --hr1:      #694339;
     --hr1_rv:   #96BCC6;
-    --hr2:      #704139;         
-    --hr2_rv:   #8FBEC6; 
-    --ni:       #6A3A35;       
+    --hr2:      #704139;
+    --hr2_rv:   #8FBEC6;
+    --ni:       #6A3A35;
     --ni_rv:    #95C5CA;
-    --bu1:		#313234;
-    --bu2:		#0F1c24;
-    --bu3:		#14191F;
-    --lt_gray:	#215C6C; 
-    --dk_gray:	#296371;
+    --bu1:      #313234;
+    --bu2:      #0F1c24;
+    --bu3:      #14191F;
+    --lt_gray:  #215C6C;
+    --dk_gray:  #296371;
 
     --main_background: var(--fl1_rv);
     --main_text: var(--fl1);
 }
 
 body {
-	color: var(--main_text);
-	background-color: var(--main_background);
-	margin: 15;
+    color: var(--main_text);
+    background-color: var(--main_background);
+    margin: 15px;
+}
+
+.image-container {
+    display: flex;
+    height: 200px; /* Fixed height for container */
+    gap: 18px; /* Space between images */
+}
+
+.image-container img {
+    height: 100%; /* Make images fit container height */
+    flex-shrink: 1; /* Allow shrinking */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+}
+
+.lineHorizontal {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    width: 100%;
+    height: 5px;
+}
+
+.td-button {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.td-button:hover {
+    background: #45a049;
+}
+
+table tr:nth-child(odd) {
+    background: var(--hr1_rv);
+}
+
+table tr:nth-child(even) {
+    background: var(--hr2_rv);
+}
+
+.flex-parent-element {
+    display: flex;
+    width: 95%;
+}
+
+.flex-child-element {
+    flex: 1;
+    border: 2px solid var(--fl1_rv);
+    margin: 10px;
+}
+
+.flex-child-element:first-child {
+    margin-right: 20px;
 }

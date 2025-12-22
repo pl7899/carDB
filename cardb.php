@@ -7,59 +7,6 @@
 <title>CarDB</title>
 <link rel="stylesheet" type="text/css" href="formatting.css"> </link>
 
-<style>
-  .image-container {
-    display: flex;
-    height: 200px;             /* Fixed height for container */
-    gap: 18px;                  /* Space between images */
-  }
-  .image-container img {
-    height: 100%;              /* Make images fit container height */
-    flex-shrink: 1;            /* Allow shrinking */
-    width: auto;               /* Maintain aspect ratio */
-    object-fit: contain;
-  }
-  .lineHorizontal {
-    border-top: 1px solid #000;
-    border-boottom: 1px solid #000;
-    width: 100%;
-    height: 5px;
-  }	
-  .td-button {
-    background: #4CAF50;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
-  }
-
-  .td-button:hover {
-      background: #45a049;
-  }
-
-  table tr:nth-child(odd) {
-    background:#F00;
-  }
-  table tr:nth-child(even) {
-    background:#FF0;
-  }
-
-  .flex-parent-element {
-  display: flex;
-  width: 95%;
- }
-
-  .flex-child-element {
-    flex: 1;
-    border: 2px solid blueviolet;
-    margin: 10px;
-  }
-
-  .flex-child-element:first-child {
-    margin-right: 20px;
-  }
-</style>
-
 </head>
 
 <body>
