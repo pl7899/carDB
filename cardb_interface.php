@@ -112,7 +112,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     echo '<form id="modifyVehicleForm" style="display: flex; align-items: flex-start; gap: 20px;">';
 
     // Use a table for better alignment of labels and input fields
-    echo '<table class="form-table" style="width: 100%; border-spacing: 15px 20px;">'; // Adjusted spacing
+    echo '<table class="form-table" style="width: 60%;">'; // Adjusted spacing
     echo '<tr>';
     echo '<td><label for="name">Name:</label></td>';
     echo '<td><input type="text" id="name" name="name" required value="' . $row['name'] . '" /></td>';
@@ -160,7 +160,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     echo '</table>';
 
     // Add the submit button to the right-hand side
-    echo '<div style="flex-shrink: 0; margin-top: 40px;">'; // Increased margin for spacing
+    echo '<div style="flex-shrink: 0; margin-left: 40px;">'; // Increased margin for spacing
     echo '<button class="button" title="Update Car Entry" style="width: 250px; height: 200px; border: none; border-radius: 10px; cursor: pointer;" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>';
     echo '</div>';
 
