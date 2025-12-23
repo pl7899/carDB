@@ -8,7 +8,7 @@ $db = db_connect();
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
 {
-    echo "<button class=\"button\" onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px; background-image: url('images/transport.png'); background-size: cover; background-position: center;\">Add a Car</button>";
+    echo "<button class=\"button\" onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px; background-image: url('images/transport.png'); background-size: cover; background-position: center;\"></button>";
     $rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
     while ($row = mysqli_fetch_array($rows)) 
     {
@@ -180,11 +180,11 @@ elseif ($_POST['action'] == "delete_maint")
 }
 elseif ($_POST['action'] == "add_button_for_maintenance")
 {
-	echo "<button class=\"button\" onclick=\"action_show_new_maintenance_entry()\" style=\"width: 200px; height: 150px;\">Record Maintenance</button>";
+	echo "<button class=\"button\" onclick=\"action_show_new_maintenance_entry()\" style=\"width: 250px; height: 200px; background-image: url('images/wrench.png'); background-size: cover; background-position: center;\">Record Maintenance</button>";
 }
 elseif ($_POST['action'] == "add_button_for_car_update")
 {
-	echo "<button class=\"button\" onclick=\"updateExitingCar(" . $_POST['activeCar'] .")\" style=\"width: 200px; height: 150px;\">Update This Car</button>";
+	echo "<button class=\"button\" onclick=\"updateExitingCar(" . $_POST['activeCar'] .")\" style=\"width: 250px; height: 200px; background-image: url('images/customization.png'); background-size: cover; background-position: center;\">Update This Car</button>";
 }
 elseif ($_POST['action'] == "update_existing_maint")
 {
