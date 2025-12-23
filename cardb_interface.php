@@ -168,19 +168,50 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 }
 elseif ($_POST['action'] == "show_new_maintenance_entry")
 {
-    echo '<label for="description">Description:</label>';
-    echo '<input type="text" id="description" name="description" required><br>';
-    echo '<label for="garage">Garage:</label>';
-    echo '<input type="text" id="garage" name="garage" required><br>';
-    echo '<label for="miles">Miles:</label>';
-    echo '<input type="number" id="miles" name="miles" required><br>';
-    echo '<label for="notes">Notes:</label>';
-    echo '<input type="text" id="notes" name="notes" required><br>';
-    echo '<label for="cost">Cost:</label>';
-    echo '<input type="text" id="cost" name="cost" required><br>';
-    echo '<label for="date">Date:</label>';
-    echo '<input type="date" id="date" name="date" required><br>'; // Add date picker
-    echo '<button class=\"button\" onclick="handleNewMaintCreation();">Create Maintenance</button>'; 
+    echo '<h2>Add New Maintenance Record</h2>';
+    echo '<form id="newMaintenanceForm" style="width: 100%; max-width: 600px; margin: 0 auto;">';
+
+    // Use a table for better alignment of labels and input fields
+    echo '<table class="form-table" style="width: 100%; border-spacing: 10px;">';
+
+    echo '<tr>';
+    echo '<td><label for="description">Description:</label></td>';
+    echo '<td><input type="text" id="description" name="description" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<td><label for="garage">Garage:</label></td>';
+    echo '<td><input type="text" id="garage" name="garage" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<td><label for="miles">Miles:</label></td>';
+    echo '<td><input type="number" id="miles" name="miles" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<td><label for="notes">Notes:</label></td>';
+    echo '<td><input type="text" id="notes" name="notes" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<td><label for="cost">Cost:</label></td>';
+    echo '<td><input type="text" id="cost" name="cost" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<td><label for="date">Date:</label></td>';
+    echo '<td><input type="date" id="date" name="date" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '</table>';
+
+    // Add the submit button
+    echo '<div style="text-align: center; margin-top: 20px;">';
+    echo '<button class="button" onclick="handleNewMaintCreation();" style="width: 200px; height: 50px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;">Create Maintenance</button>';
+    echo '</div>';
+
+    echo '</form>';
 }
 elseif ($_POST['action'] == "delete_vehicle")
 {
