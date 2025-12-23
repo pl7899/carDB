@@ -8,7 +8,7 @@ $db = db_connect();
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
 {
-    echo "<button class=\"button\" onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px; background-image: url('images/transport.png');\">Add a Car</button>";
+    echo "<button class=\"button\" onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px; background-image: url('images/transport.png'); background-size: cover; background-position: center;\">Add a Car</button>";
     $rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
     while ($row = mysqli_fetch_array($rows)) 
     {
