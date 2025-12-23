@@ -112,7 +112,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     echo '<form id="modifyVehicleForm" style="display: flex; align-items: center; gap: 20px;">'; // Center vertically
 
     // Use a table for better alignment of labels and input fields
-    echo '<table class="form-table" style="width: 60%;">';
+    echo '<table class="form-table" style="width: 35%;">';
     echo '<tr>';
     echo '<td><label for="name">Name:</label></td>';
     echo '<td><input type="text" id="name" name="name" required value="' . $row['name'] . '" /></td>';
@@ -161,7 +161,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 
     // Add the submit button to the right-hand side
     echo '<div style="flex-shrink: 0;">';
-    echo '<button class="button" title="Update Car Entry" style="width: 250px; height: 200px; border: none; border-radius: 10px; cursor: pointer;" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>';
+    echo '<button class="button" title="Update Car Entry" style="width: 125px; height: 100px; margin: 50px; border: none; border-radius: 10px; cursor: pointer;" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>';
     echo '</div>';
 
     echo '</form>';
