@@ -342,9 +342,9 @@ function printMaintTable($rows) {
 	<th width=\"10%\"> garage</th> 
 	<th width=\"5%\"> cost </th>
 	<th width=\"10%\"> miles </th>
-	<th width=\"25%\"> description </th>
+	<th width=\"25%\" style=\"text-align:center\";> description </th>
 	<th width=\"10%\"> date</th>
-	<th width=\"25%\"> notes</th>
+	<th width=\"25%\" style=\"text-align:center\";> notes</th>
 	";
 	if($rows == null)
 	{
