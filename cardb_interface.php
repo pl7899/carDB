@@ -53,30 +53,60 @@ elseif ($_POST['action'] == "action_initial_maintenance_display")
 }
 elseif ($_POST['action'] == "action_add_vehicle")
 {
-    echo '<label for="make">Make:</label>';
-    echo '<input type="text" id="make" name="make" required><br><br>';
+    echo '<h2>Add New Vehicle</h2>';
+    echo '<form id="addVehicleForm" style="display: flex; align-items: center; gap: 20px; margin-left: 40px;">';
 
-    echo '<label for="model">Model:</label>';
-    echo '<input type="text" id="model" name="model" required><br><br>';
+    // Use a table for better alignment of labels and input fields
+    echo '<table class="form-table" style="width: 60%;">';
 
-    echo '<label for="year">Year:</label>';
-    echo '<input type="number" id="year" name="year" required><br><br>';
+    echo '<tr>';
+    echo '<td><label for="make">Make:</label></td>';
+    echo '<td><input type="text" id="make" name="make" required style="width: 100%;"></td>';
+    echo '</tr>';
 
-    echo '<label for="vin">VIN Number:</label>';
-    echo '<input type="text" id="vin" name="vin" required><br><br>';
+    echo '<tr>';
+    echo '<td><label for="model">Model:</label></td>';
+    echo '<td><input type="text" id="model" name="model" required style="width: 100%;"></td>';
+    echo '</tr>';
 
-    echo '<label for="registration">Registration Number:</label>';
-    echo '<input type="text" id="registration" name="registration" required><br><br>';
+    echo '<tr>';
+    echo '<td><label for="year">Year:</label></td>';
+    echo '<td><input type="number" id="year" name="year" required style="width: 100%;"></td>';
+    echo '</tr>';
 
-    echo '<label for="mileage">Mileage:</label>';
-    echo '<input type="number" id="mileage" name="mileage" required><br><br>';
+    echo '<tr>';
+    echo '<td><label for="vin">VIN Number:</label></td>';
+    echo '<td><input type="text" id="vin" name="vin" required style="width: 100%;"></td>';
+    echo '</tr>';
 
-    echo '<label for="name">Name:</label>';
-    echo '<input type="text" id="name" name="name" required><br><br>';
+    echo '<tr>';
+    echo '<td><label for="registration">Registration Number:</label></td>';
+    echo '<td><input type="text" id="registration" name="registration" required style="width: 100%;"></td>';
+    echo '</tr>';
 
-    echo '<label for="license">License Plate:</label>';
-    echo '<input type="text" id="license" name="license" required><br><br>';
-    echo '<button class=\"button\" onclick="handleNewCarCreation();">Create Car</button>'; 
+    echo '<tr>';
+    echo '<td><label for="mileage">Mileage:</label></td>';
+    echo '<td><input type="number" id="mileage" name="mileage" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<td><label for="name">Name:</label></td>';
+    echo '<td><input type="text" id="name" name="name" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo '<td><label for="license">License Plate:</label></td>';
+    echo '<td><input type="text" id="license" name="license" required style="width: 100%;"></td>';
+    echo '</tr>';
+
+    echo '</table>';
+
+    // Add the submit button to the right-hand side
+    echo '<div style="flex-shrink: 0;">';
+    echo '<button class="button" onclick="handleNewCarCreation();" style="width: 125px; height: 100px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;">Create Vehicle</button>';
+    echo '</div>';
+
+    echo '</form>';
 }
 elseif ($_POST['action'] == "action_select_car")
 {
