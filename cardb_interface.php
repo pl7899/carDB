@@ -161,7 +161,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 
     // Add the submit button to the right-hand side
     echo '<div style="flex-shrink: 0;">';
-    echo '<button class="button" style="width: 250px; height: 200px; background-color: #4CAF50; color: white; border: none; border-radius: 10px; cursor: pointer;" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>';
+    echo '<button class="button" title="Update Car Entry" style="width: 125px; height: 100px; border: none; border-radius: 10px; cursor: pointer;" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>';
     echo '</div>';
 
     echo '</form>';
