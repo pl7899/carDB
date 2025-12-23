@@ -109,7 +109,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     $row = mysqli_fetch_array($rows);
 
     echo '<h2>Modify Vehicle Information</h2>';
-    echo '<form id="modifyVehicleForm">';
+    echo '<form id="modifyVehicleForm" style="display: flex; align-items: flex-start; gap: 20px;">';
 
     // Use a table for better alignment of labels and input fields
     echo '<table class="form-table">';
@@ -159,9 +159,11 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     echo '</tr>';
     echo '</table>';
 
-    // Add a submit button
-    echo '<br>';
-    echo '<button class="button" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>';
+    // Add the submit button to the right-hand side
+    echo '<div style="flex-shrink: 0;">';
+    echo '<button class="button" style="width: 250px; height: 200px; background-color: #4CAF50; color: white; border: none; border-radius: 10px; cursor: pointer;" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>';
+    echo '</div>';
+
     echo '</form>';
 }
 elseif ($_POST['action'] == "show_new_maintenance_entry")
