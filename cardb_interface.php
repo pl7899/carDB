@@ -103,7 +103,7 @@ elseif ($_POST['action'] == "action_add_vehicle")
 
     // Add the submit button to the right-hand side
     echo '<div style="flex-shrink: 0;">';
-    echo '<button class="button" onclick="handleNewCarCreation();" style="width: 125px; height: 100px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;">Create Vehicle</button>';
+    echo '<button class="button" onclick="handleNewCarCreation();" style="width: 125px; height: 100px; border: none; border-radius: 10px; cursor: pointer;">Create Vehicle</button>';
     echo '</div>';
 
     echo '</form>';
