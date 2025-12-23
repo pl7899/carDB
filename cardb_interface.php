@@ -8,7 +8,7 @@ $db = db_connect();
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
 {
-    echo "<button class=\"button\" onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px;\">Add a Car</button>";
+    echo "<button class=\"button\" onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px; background-image: url('images/transport.png');\">Add a Car</button>";
     $rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
     while ($row = mysqli_fetch_array($rows)) 
     {
@@ -110,28 +110,20 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 	$row = mysqli_fetch_array($rows);
 	echo '<label for="name">Name:</label>';
     echo '<input type="text" id="name" name="name" required value="' . $row['name'] . '" /> <br>';
-
 	echo '<label for="make">Make:</label>';
     echo '<input type="text" id="make" name="make" required value="' . $row['make'] . '" /> <br>';
-
     echo '<label for="model">Model:</label>';
     echo '<input type="text" id="model" name="model" required value="' . $row['model'] . '" /> <br>';
-
     echo '<label for="year">Year:</label>';
     echo '<input type="number" id="year" name="year" required value="' . $row['year'] . '" /> <br>';
-
 	echo '<label for="year">image:</label>';
     echo '<input type="text" id="image" name="image" required value="' . $row['image'] . '" /> <br>';
-
     echo '<label for="vin">VIN Number:</label>';
     echo '<input type="text" id="vin" name="vin" required value="' . $row['vin'] . '" /> <br>';
-
     echo '<label for="registration">Registration Number:</label>';
     echo '<input type="text" id="registration" name="registration" required value="' . $row['registration'] . '" /> <br>';
-
     echo '<label for="mileage">Mileage:</label>';
     echo '<input type="number" id="mileage" name="mileage" required value="' . $row['miles'] . '" /> <br>';
-
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required value="' . $row['plate'] . '" /> <br>';
     echo '<button class=\"button\" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>'; 

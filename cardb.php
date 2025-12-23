@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CarDB</title>
 <link rel="stylesheet" type="text/css" href="formatting.css"> </link>
-
 </head>
 
 <body>
@@ -32,6 +31,7 @@
 	});
 
 </script>
+<a href="https://www.flaticon.com/free-icons/and" title="and icons">And icons created by Andrew Dynamite - Flaticon</a>
 
 </body>
 
