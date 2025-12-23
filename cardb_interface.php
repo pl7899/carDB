@@ -169,10 +169,10 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 elseif ($_POST['action'] == "show_new_maintenance_entry")
 {
     echo '<h2>Add New Maintenance Record</h2>';
-    echo '<form id="newMaintenanceForm" style="width: 100%; max-width: 600px; margin: 0 auto;">';
+    echo '<form id="newMaintenanceForm" style="display: flex; align-items: center; gap: 20px; margin-left: 40px;">';
 
     // Use a table for better alignment of labels and input fields
-    echo '<table class="form-table" style="width: 100%; border-spacing: 10px;">';
+    echo '<table class="form-table" style="width: 60%;">';
 
     echo '<tr>';
     echo '<td><label for="description">Description:</label></td>';
@@ -206,9 +206,9 @@ elseif ($_POST['action'] == "show_new_maintenance_entry")
 
     echo '</table>';
 
-    // Add the submit button
-    echo '<div style="text-align: center; margin-top: 20px;">';
-    echo '<button class="button" onclick="handleNewMaintCreation();" style="width: 200px; height: 50px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;">Create Maintenance</button>';
+    // Add the submit button to the right-hand side
+    echo '<div style="flex-shrink: 0;">';
+    echo '<button class="button" onclick="handleNewMaintCreation();" style="width: 125px; height: 100px; border: none; border-radius: 10px; background-color: #4CAF50; color: white; cursor: pointer;">Create Maintenance</button>';
     echo '</div>';
 
     echo '</form>';
