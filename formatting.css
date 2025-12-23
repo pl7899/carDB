@@ -119,7 +119,7 @@ body {
 
 .carTable {
     width: 100%;
-    font-size: 18px;
+    font-size: 28px;
     text-align: left;
     background-color: var(--bi_rv);
     border-collapse: collapse;
