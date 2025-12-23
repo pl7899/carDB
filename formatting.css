@@ -75,6 +75,7 @@ body {
 }
 
 .maintTable th {
+    border-bottom:2px solid #000;
     background: var(--hr1);
     color: var(--hr1_rv);
     padding: 8px;
