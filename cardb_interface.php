@@ -8,7 +8,7 @@ $db = db_connect();
 
 if ($_POST['action'] == "vehicle_initial_button_generation")
 {
-    echo "<button onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px;\">Add a Car</button>";
+    echo "<button class=\"button\" onclick=\"action_add_vehicle()\" style=\"width: 250px; height: 200px;\">Add a Car</button>";
     $rows = mysqli_query($db, "SELECT * FROM `cardb_cars`");
     while ($row = mysqli_fetch_array($rows)) 
     {
@@ -17,10 +17,10 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 
         // Check if the image URL is valid
         if (!empty($imageUrl)) {
-            echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 250px; height: 200px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\"></button>";
+            echo "<button class=\"button\" onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 250px; height: 200px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\"></button>";
         } else {
             // Fallback to showing the name if no valid image is available
-            echo "<button onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 250px; height: 200px;\">" . $row['name'] . "</button>";
+            echo "<button class=\"button\" onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 250px; height: 200px;\">" . $row['name'] . "</button>";
         }
     }
 }
@@ -76,7 +76,7 @@ elseif ($_POST['action'] == "action_add_vehicle")
 
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required><br><br>';
-    echo '<button onclick="handleNewCarCreation();">Create Car</button>'; 
+    echo '<button class=\"button\" onclick="handleNewCarCreation();">Create Car</button>'; 
 }
 elseif ($_POST['action'] == "action_select_car")
 {
@@ -134,7 +134,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
 
     echo '<label for="license">License Plate:</label>';
     echo '<input type="text" id="license" name="license" required value="' . $row['plate'] . '" /> <br>';
-    echo '<button onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>'; 
+    echo '<button class=\"button\" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>'; 
 }
 elseif ($_POST['action'] == "show_new_maintenance_entry")
 {
@@ -150,7 +150,7 @@ elseif ($_POST['action'] == "show_new_maintenance_entry")
     echo '<input type="text" id="cost" name="cost" required><br>';
     echo '<label for="date">Date:</label>';
     echo '<input type="date" id="date" name="date" required><br>'; // Add date picker
-    echo '<button onclick="handleNewMaintCreation();">Create Maintenance</button>'; 
+    echo '<button class=\"button\" onclick="handleNewMaintCreation();">Create Maintenance</button>'; 
 }
 elseif ($_POST['action'] == "delete_vehicle")
 {
@@ -188,11 +188,11 @@ elseif ($_POST['action'] == "delete_maint")
 }
 elseif ($_POST['action'] == "add_button_for_maintenance")
 {
-	echo "<button onclick=\"action_show_new_maintenance_entry()\" style=\"width: 200px; height: 150px;\">Record Maintenance</button>";
+	echo "<button class=\"button\" onclick=\"action_show_new_maintenance_entry()\" style=\"width: 200px; height: 150px;\">Record Maintenance</button>";
 }
 elseif ($_POST['action'] == "add_button_for_car_update")
 {
-	echo "<button onclick=\"updateExitingCar(" . $_POST['activeCar'] .")\" style=\"width: 200px; height: 150px;\">Update This Car</button>";
+	echo "<button class=\"button\" onclick=\"updateExitingCar(" . $_POST['activeCar'] .")\" style=\"width: 200px; height: 150px;\">Update This Car</button>";
 }
 elseif ($_POST['action'] == "update_existing_maint")
 {
