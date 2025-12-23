@@ -12,11 +12,11 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"> </script>
 <script src="cardb_shim.js"></script>
 
-<div id="vehicle_output" class="image-container">
+<div id="vehicle_output" class="image-container" style="margin: 10px;">
 
 </div>
 
-<hr class="lineHorizontal">   
+<hr class="lineHorizontal" style="margin: 20px;">   
 
 <div id="actionContainer" class="flex-parent-element">
   <div id="action_output" class="flex-child-element" style="flex-grow: 6;"> </div>
