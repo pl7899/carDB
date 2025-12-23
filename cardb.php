@@ -31,7 +31,6 @@
 	});
 
 </script>
-<a href="https://www.flaticon.com/free-icons/and" title="and icons">And icons created by Andrew Dynamite - Flaticon</a>
 
 </body>
 
