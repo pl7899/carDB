@@ -17,10 +17,10 @@ if ($_POST['action'] == "vehicle_initial_button_generation")
 
         // Check if the image URL is valid
         if (!empty($imageUrl)) {
-            echo "<button class=\"button\" onclick=\"setActiveCar(" . $row['id'] . ")\" title=\"Set" . $row['name'] . " Active\" style=\"width: 250px; height: 200px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\"></button>";
+            echo "<button class=\"button\" onclick=\"setActiveCar(" . $row['id'] . ")\" title=\"Activate " . $row['name'] . "\" style=\"width: 250px; height: 200px; background-image: url('" . $imageUrl . "'); background-size: cover; background-position: center;\"></button>";
         } else {
             // Fallback to showing the name if no valid image is available
-            echo "<button class=\"button\" onclick=\"setActiveCar(" . $row['id'] . ")\" style=\"width: 250px; height: 200px;\">" . $row['name'] . "</button>";
+            echo "<button class=\"button\" onclick=\"setActiveCar(" . $row['id'] . ")\" title=\"Activate " . $row['name'] . "\" style=\"width: 250px; height: 200px;\">" . $row['name'] . "</button>";
         }
     }
 }
