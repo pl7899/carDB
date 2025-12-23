@@ -26,7 +26,7 @@
     --dk_gray:  #296371;
 
     --main_background: var(--fl1_rv);
-    --main_text: var(--fl1);
+    --main_text: var(--tn1_rv);
 }
 
 body {
