@@ -136,3 +136,39 @@ body {
     box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.6);
     border-radius: 20px;
 }
+
+#newMaintenanceForm {
+    display: flex;
+    align-items: center; /* Center the button vertically */
+    gap: 20px; /* Space between the table and the button */
+    margin-left: 40px; /* Left margin for the form */
+}
+
+.form-table {
+    width: 100%;
+    border-spacing: 15px 20px; /* Space between rows and columns */
+}
+
+.form-table td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.form-table label {
+    font-weight: bold;
+}
+
+#newMaintenanceForm .button {
+    width: 125px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#newMaintenanceForm .button:hover {
+    background-color: #45a049;
+}
