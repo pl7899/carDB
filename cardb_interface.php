@@ -172,7 +172,7 @@ elseif ($_POST['action'] == "show_new_maintenance_entry")
     echo '<form id="newMaintenanceForm" style="display: flex; align-items: center; gap: 20px; margin-left: 40px;">';
 
     // Use a table for better alignment of labels and input fields
-    echo '<table class="form-table" style="width: 60%;">';
+    echo '<table class="form-table" style="width: 35%;">';
 
     echo '<tr>';
     echo '<td><label for="description">Description:</label></td>';
