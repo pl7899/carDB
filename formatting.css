@@ -75,20 +75,20 @@ body {
 }
 
 .maintTable th {
-    background: var(--hr2);
-    color: var(--hr2_rv);
+    background: var(--hr1);
+    color: var(--hr1_rv);
     padding: 8px;
     text-align: center;
 }
 
 .maintTable tr:nth-child(odd) {
-    background: var(--hr1_rv);
-    color: var(--hr1);
+    background: var(--fl2_rv);
+    color: var(--fl2);
 }
 
 .maintTable tr:nth-child(even) {
-    background: var(--hr2_rv);
-    color: var(--hr2);
+    background: var(--tn1_rv);
+    color: var(--tn1);
 }
 
 .flex-parent-element {
@@ -134,30 +134,4 @@ body {
     background-color: var(--tn1_rv);
     box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.6);
     border-radius: 20px;
-}
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-    cursor: pointer;
-}
-
-.tooltiptext {
-    visibility: hidden;
-    width: 130px;
-    background-color: black;
-    color: #ffffff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    top: 100%;
-    left: 65%;
-    margin-left: -65px;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
 }
