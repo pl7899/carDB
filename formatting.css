@@ -93,7 +93,7 @@ body {
 
 .flex-parent-element {
     display: flex;
-    width: 95%;
+    width: 100%;
 }
 
 .flex-child-element-centered {
