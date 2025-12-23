@@ -339,12 +339,12 @@ function printCarTable($rows, $showEditButton) {
 function printMaintTable($rows) {
 
 	echo "<table class=\"maintTable\" id=\"maintTable\"> <tr> 
-	<th width=\"10%\"> garage</th> 
-	<th width=\"5%\"> cost </th>
-	<th width=\"10%\"> miles </th>
-	<th width=\"25%\" style=\"text-align:center\";> description </th>
-	<th width=\"10%\"> date</th>
-	<th width=\"25%\" style=\"text-align:center\";> notes</th>
+	<th width=\"10%\"> Garage</th> 
+	<th width=\"5%\"> Cost </th>
+	<th width=\"10%\"> Miles </th>
+	<th width=\"25%\" style=\"text-align:left\";> Description </th>
+	<th width=\"10%\"> Date</th>
+	<th width=\"25%\" style=\"text-align:left\";> Notes</th>
 	";
 	if($rows == null)
 	{
