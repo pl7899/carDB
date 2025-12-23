@@ -180,11 +180,11 @@ elseif ($_POST['action'] == "delete_maint")
 }
 elseif ($_POST['action'] == "add_button_for_maintenance")
 {
-	echo "<button class=\"button\" onclick=\"action_show_new_maintenance_entry()\" style=\"width: 250px; height: 200px; background-image: url('images/wrench.png'); background-size: cover; background-position: center;\"> <span class=\"tooltiptext\">New Maint Entry</span> </button>";
+	echo " <span class=\"tooltiptext\">New Maint Entry</span>  <button class=\"button\" onclick=\"action_show_new_maintenance_entry()\" style=\"width: 250px; height: 200px; background-image: url('images/wrench.png'); background-size: cover; background-position: center;\"></button>";
 }
 elseif ($_POST['action'] == "add_button_for_car_update")
 {
-	echo "<button class=\"button\" onclick=\"updateExitingCar(" . $_POST['activeCar'] .")\" style=\"width: 250px; height: 200px; background-image: url('images/customization.png'); background-size: cover; background-position: center;\"> <span class=\"tooltiptext\">Update This Car</span> </button>";
+	echo "<span class=\"tooltiptext\">Update This Car</span> <button class=\"button\" onclick=\"updateExitingCar(" . $_POST['activeCar'] .")\" style=\"width: 250px; height: 200px; background-image: url('images/customization.png'); background-size: cover; background-position: center;\"></button>";
 }
 elseif ($_POST['action'] == "update_existing_maint")
 {
