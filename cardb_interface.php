@@ -109,7 +109,7 @@ elseif ($_POST['action'] == "modify_existing_vehicle")
     $row = mysqli_fetch_array($rows);
 
     echo '<h2>Modify Vehicle Information</h2>';
-    echo '<form id="modifyVehicleForm" style="display: flex; align-items: center; gap: 20px;">'; // Center vertically
+    echo '<form id="modifyVehicleForm" style="display: flex; align-items: center; gap: 20px; margin-left: 40px;">'; // Added left margin
 
     // Use a table for better alignment of labels and input fields
     echo '<table class="form-table" style="width: 35%;">';
