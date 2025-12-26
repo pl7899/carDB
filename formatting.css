@@ -51,20 +51,20 @@
 
     --line-color:           var(--c64-pink);
 
-    --button-background:        var(--c64-dk-gray);
+    --button-background:        var(--c64-lt-purple);
     --button-color:             var(--c64-lt-gray);
     --button-hover-background:  var(--c64-gray);
 
-    --table-color:               var(--c64-purple);
+    --table-color:               var(--c64-black);
     --table-background-color:    var(--c64-lt-purple);
     --table-boarder-color:       var(--c64-black);
-    --table-even-row-background: var(--c64-brown);
-    --table-even-row-color:      var(--c64-lt-gray);
-    --table-odd-row-background:  var(--c64-beige);
+    --table-even-row-background: var(--c64-lt-green);
+    --table-even-row-color:      var(--c64-dk-gray);
+    --table-odd-row-background:  var(--c64-blue);
     --table-odd-row-color:       var(--c64-dk-gray);
 
-    --car-table-header-background:  var(--c64-lt-purple);
-    --car-table-header-color:       var(--c64-black);
+    --car-table-header-background:  var(--c64-black);
+    --car-table-header-color:       var(--c64-lt-purple);
 }
 
 body {
