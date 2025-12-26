@@ -1,32 +1,70 @@
 :root {
-    --it:       #EEC3CA;
-    --it_rv:    #113C35;
-    --bi:       #FFE8F1;
-    --bi_rv:    #00170E;
-    --bi2:      #FCD1D8;
-    --bi2_rv:   #032E27;
-    --ey:       #574042;
-    --ey_rv:    #A8BFBD;
-    --fl1:      #FEC3B3;
-    --fl1_rv:   #013C4C;
-    --fl2:      #BF8172;
-    --fl2_rv:   #407E8D;
-    --tn1:      #833D45;
-    --tn1_rv:   #7CC2BA;
-    --hr1:      #694339;
-    --hr1_rv:   #96BCC6;
-    --hr2:      #704139;
-    --hr2_rv:   #8FBEC6;
-    --ni:       #6A3A35;
-    --ni_rv:    #95C5CA;
-    --bu1:      #313234;
-    --bu2:      #0F1c24;
-    --bu3:      #14191F;
-    --lt_gray:  #215C6C;
-    --dk_gray:  #296371;
+    --it:                   #EEC3CA;
+    --it_rv:                #113C35;
+    --bi:                   #FFE8F1;
+    --bi_rv:                #00170E;
+    --bi2:                  #FCD1D8;
+    --bi2_rv:               #032E27;
+    --ey:                   #574042;
+    --ey_rv:                #A8BFBD;
+    --fl1:                  #FEC3B3;
+    --fl1_rv:               #013C4C;
+    --fl2:                  #BF8172;
+    --fl2_rv:               #407E8D;
+    --tn1:                  #833D45;
+    --tn1_rv:               #7CC2BA;
+    --hr1:                  #694339;
+    --hr1_rv:               #96BCC6;
+    --hr2:                  #704139;
+    --hr2_rv:               #8FBEC6;
+    --ni:                   #6A3A35;
+    --ni_rv:                #95C5CA;
+    --bu1:                  #313234;
+    --bu2:                  #0F1c24;
+    --bu3:                  #14191F;
+    --lt_gray:              #215C6C;
+    --dk_gray:              #296371;
 
-    --main_background: var(--fl1_rv);
-    --main_text: var(--tn1_rv);
+    --c64-black:            #000000;
+    --c64-white:            #FFFFFF;
+
+    --c64-dk-gray:          #626262;
+    --c64-gray:             #898989;
+    --c64-lt-gray:          #adadad;
+
+    --c64-red:              #9f4e44;
+    --c64-lt-red:           #cb7e75;
+
+    --c64-brown:            #6d5412;
+    --c64-beige:            #a1683c;
+    --c64-yellow:           #c9d487;
+    --c64-lt-green:         #9ae29b;
+    --c64-green:            #5cab5e;
+    --c64-blue:             #6abfc6;
+    --c64-lt-purple:        #887ecb;
+    --c64-purple:           #50459b;
+    --c64-pink:             #a057a3;
+
+
+    --main_background:      var(--c64-purple);
+    --main_text:            var(--c64-lt-purple);
+
+    --line-color:           var(--c64-pink);
+
+    --button-background:        var(--c64-dk-gray);
+    --button-color:             var(--c64-lt-gray);
+    --button-hover-background:  var(--c64-gray);
+
+    --table-color:               var(--c64-purple);
+    --table-background-color:    var(--c64-lt-purple);
+    --table-boarder-color:       var(--c64-black);
+    --table-even-row-background: var(--c64-brown);
+    --table-even-row-color:      var(--c64-lt-gray);
+    --table-odd-row-background:  var(--c64-beige);
+    --table-odd-row-color:       var(--c64-dk-gray);
+
+    --car-table-header-background:  var(--c64-lt-purple);
+    --car-table-header-color:       var(--c64-black);
 }
 
 body {
@@ -49,47 +87,47 @@ body {
 }
 
 .lineHorizontal {
-    border-top: 2px solid var(--fl2); /* Top border */
-    border-bottom: 2px solid var(--fl2); /* Bottom border */
+    border-top: 2px solid var(--line-color); /* Top border */
+    border-bottom: 2px solid var(--line-color); /* Bottom border */
     width: auto;
     height: 5px;
 }
 
 .td-button {
-    background: #4CAF50;
-    color: white;
+    background: var(--button-background);
+    color: var(--button-color);
     padding: 10px;
     cursor: pointer;
     text-align: center;
 }
 
 .td-button:hover {
-    background: #45a049;
+    background: var(--button-hover-background);
 }
 
 .maintTable {
     width: 100%;
     text-align: left;
-    background-color: var(--fl1_rv);
+    background-color: var(--table-background-color);
     border-collapse: collapse;
 }
 
 .maintTable th {
-    border-bottom:2px solid #000;
-    background: var(--hr1);
-    color: var(--hr1_rv);
+    border-bottom: 2px var(--table-boarder-color);
+    background: var(--table-background-color);
+    color: var(--table-color);
     padding: 8px;
     text-align: center;
 }
 
 .maintTable tr:nth-child(odd) {
-    background: var(--fl2_rv);
-    color: var(--fl2);
+    background: var(--table-even-row-background);
+    color: var(--table-even-row-color);
 }
 
 .maintTable tr:nth-child(even) {
-    background: var(--tn1_rv);
-    color: var(--tn1);
+    background: var(--table-odd-row-background);
+    color: var(--table-odd-row-color);
 }
 
 .flex-parent-element {
@@ -99,18 +137,15 @@ body {
 
 .flex-child-element-centered {
     flex: 1;
-    border: 2px solid var(--fl1_rv);
     margin: 10px;
 
-    /* Center content inside the div */
     display: flex;
     justify-content: center; /* Center horizontally */
-    align-items: center;    /* Center vertically */
+    align-items: center; /* Center vertically */
 }
 
 .flex-child-element {
     flex: 1;
-    border: 2px solid var(--fl1_rv);
     margin: 10px;
 }
 
@@ -122,17 +157,17 @@ body {
     width: 100%;
     font-size: 28px;
     text-align: left;
-    background-color: var(--bi_rv);
+    background-color: var(--car-table-header-background);
     border-collapse: collapse;
 }
 
 .carTable th {
-    background: var(--bi_rv);
-    color: var(--bi);
+    background: var(--car-table-header-background);
+    color: var(--car-table-header-color);
 }
 
 .button {
-    background-color: var(--tn1_rv);
+    background-color: var(--button-background);
     box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.6);
     border-radius: 20px;
 }
