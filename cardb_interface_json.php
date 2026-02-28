@@ -97,9 +97,13 @@ elseif ($_POST['action'] == "json_select_car")
 			echo "	}";
 		}
 	}
-
+	echo "]";
+}
+elseif ($_POST['action'] == "json_records_by_car")
+{
 	$query = "SELECT * FROM `cardb_maint` WHERE `name` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
+	echo "[";
 	if($rows == null)
 	{
 		echo "]";
