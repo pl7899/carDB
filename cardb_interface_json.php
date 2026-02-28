@@ -47,6 +47,7 @@ elseif ($_POST['action'] == "json_retrieve_all_maint")
 	{
 		return;
 	}
+	$num_rows = mysqli_num_rows($rows);
 
 	echo "[";
 	while ($row = mysqli_fetch_array($rows)) {
@@ -77,6 +78,7 @@ elseif ($_POST['action'] == "json_select_car")
 	{
 		return;
 	}
+	$num_rows = mysqli_num_rows($rows);
 	echo "[";
 	while ($row = mysqli_fetch_array($rows)) {
 	    $counter++;
@@ -103,6 +105,7 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "]";
 		return;
 	}
+	$num_rows = mysqli_num_rows($rows);
 	while ($row = mysqli_fetch_array($rows)) {
 	    $counter++;
 		echo "	{";
