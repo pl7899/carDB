@@ -71,11 +71,11 @@ elseif ($_POST['action'] == "json_retrieve_all_maint")
 }
 elseif ($_POST['action'] == "json_select_car")
 {
-	$activeCar = $_POST['activeCar'];
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
 	if($rows == null)
 	{
+		echo "no data returned";
 		return;
 	}
 	$num_rows = mysqli_num_rows($rows);
