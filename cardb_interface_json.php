@@ -54,7 +54,7 @@ elseif ($_POST['action'] == "json_retrieve_all_maint")
 		echo "	{";
 		echo "		\"name\": \"" . 		$row['name'] . "\",";
 		echo "		\"garage\": \"" . 		$row['garage'] . "\",";
-		echo "		\"description\": " . 	$row['description'] . "\",";
+		echo "		\"description\": \"" . 	$row['description'] . "\",";
 		echo "		\"cost\": \"" . 		$row['cost'] . "\",";
 		echo "		\"date\": \"" . 		$row['date'] . "\",";
 		echo "		\"miles\": " . 			$row['miles'] . ",";
