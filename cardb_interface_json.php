@@ -71,6 +71,7 @@ elseif ($_POST['action'] == "json_retrieve_all_maint")
 }
 elseif ($_POST['action'] == "json_select_car")
 {
+	echo "json_select_car entry (active_car = " . $_POST['active_car'];
 	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
 	if($rows == null)
