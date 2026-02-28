@@ -92,9 +92,9 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "		\"plate\": \"" . 		$row['plate'] . "\",";
 		echo "		\"vin\": \"" . 			$row['vin'] . "\"";
 		if ($counter == $num_rows) {
-			echo "	},";
-		} else {
 			echo "	}";
+		} else {
+			echo "	},";
 		}
 	}
 	echo "]";
