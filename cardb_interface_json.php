@@ -94,9 +94,9 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "		\"plate\": \"" . 		$row['plate'] . "\",";
 		echo "		\"vin\": \"" . 			$row['vin'] . "\"";
 		if ($counter == $num_rows) {
-			echo "	}";
-		} else {
 			echo "	},";
+		} else {
+			echo "	}";
 		}
 	}
 
@@ -107,7 +107,6 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "]";
 		return;
 	}
-	echo ",";
 	$num_rows = mysqli_num_rows($rows);
 	$counter = 0;
 	while ($row = mysqli_fetch_array($rows)) {
@@ -117,7 +116,7 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "		\"cost\": \"" . 		$row['cost'] . "\",";
 		echo "		\"miles\": " . 			$row['miles'] . ",";
 		echo "		\"description\": \"" . 	$row['description'] . "\",";
-		echo "		\"date\": \"" . 		$row['date'] . ",";
+		echo "		\"date\": \"" . 		$row['date'] . "\",";
 		echo "		\"notes\": \"" . 		$row['notes'] . "\"";
 		if ($counter == $num_rows) {
 			echo "	}";
