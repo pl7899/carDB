@@ -35,10 +35,9 @@ if ($_POST['action'] == "json_retrieve_vehicles")
 elseif ($_POST['action'] == "json_test_connectivity")
 {
 	echo "[";
-		echo "	{";
-		echo "		\"message\": \"communication established\"";
-		echo "	}";
-	}
+	echo "	{";
+	echo "		\"message\": \"communication established\"";
+	echo "	}";
 	echo "]";
 }
 elseif ($_POST['action'] == "json_retrieve_all_maint")
