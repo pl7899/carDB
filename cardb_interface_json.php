@@ -23,7 +23,7 @@ if ($_POST['action'] == "json_retrieve_vehicles")
 		echo "	{";
 		echo "		\"id\": " . 		$row['id'] . ",";
 		echo "		\"name\": \"" . 	$row['name'] . "\",";
-		echo "		\"image\": \"" . 	$row['image'] . "\",";
+		echo "		\"image\": \"" . 	$row['image'] . "\"";
 		if ($counter == $num_rows) {
 			echo "	}";
 		} else {
@@ -59,7 +59,7 @@ elseif ($_POST['action'] == "json_retrieve_all_maint")
 		echo "		\"date\": \"" . 		$row['date'] . "\",";
 		echo "		\"miles\": " . 			$row['miles'] . ",";
 		echo "		\"notes\": \"" . 		$row['notes'] . "\",";
-		echo "		\"invoice\": \"" . 		$row['invoice'] . "\",";
+		echo "		\"invoice\": \"" . 		$row['invoice'] . "\"";
 		if ($counter == $num_rows) {
 			echo "	}";
 		} else {
@@ -88,7 +88,7 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "		\"miles\": " . 			$row['miles'] . ",";
 		echo "		\"registration\": \"" . $row['registration'] . "\",";
 		echo "		\"plate\": \"" . 		$row['plate'] . "\",";
-		echo "		\"vin\": \"" . 			$row['vin'] . "\",";
+		echo "		\"vin\": \"" . 			$row['vin'] . "\"";
 		if ($counter == $num_rows) {
 			echo "	}";
 		} else {
@@ -111,7 +111,7 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "		\"miles\": " . 			$row['miles'] . ",";
 		echo "		\"description\": \"" . 	$row['description'] . "\",";
 		echo "		\"date\": \"" . 		$row['date'] . ",";
-		echo "		\"notes\": \"" . 		$row['notes'] . "\",";
+		echo "		\"notes\": \"" . 		$row['notes'] . "\"";
 		if ($counter == $num_rows) {
 			echo "	}";
 		} else {
