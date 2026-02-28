@@ -71,7 +71,7 @@ elseif ($_POST['action'] == "json_retrieve_all_maint")
 }
 elseif ($_POST['action'] == "json_select_car")
 {
-	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
+	$query = "SELECT * FROM `cardb_cars` WHERE `name` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
 	if($rows == null)
 	{
@@ -98,7 +98,7 @@ elseif ($_POST['action'] == "json_select_car")
 		}
 	}
 
-	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = '" . $_POST['activeCar'] . "';";
+	$query = "SELECT * FROM `cardb_maint` WHERE `name` = '" . $_POST['activeCar'] . "';";
 	$rows = mysqli_query($db, $query);
 	if($rows == null)
 	{
