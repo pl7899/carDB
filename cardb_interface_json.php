@@ -106,6 +106,7 @@ elseif ($_POST['action'] == "json_select_car")
 		return;
 	}
 	$num_rows = mysqli_num_rows($rows);
+	$counter = 0;
 	while ($row = mysqli_fetch_array($rows)) {
 	    $counter++;
 		echo "	{";
