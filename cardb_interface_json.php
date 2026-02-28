@@ -83,6 +83,8 @@ elseif ($_POST['action'] == "json_select_car")
 	while ($row = mysqli_fetch_array($rows)) {
 	    $counter++;
 		echo "	{";
+		echo "		\"row\": \"" . 			$counter . "\",";
+		echo "		\"totalRows\": \"" . 	$num_rows . "\",";
 		echo "		\"name\": \"" . 		$row['name'] . "\",";
 		echo "		\"year\": \"" . 		$row['year'] . "\",";
 		echo "		\"make\": \"" . 		$row['make'] . "\",";
@@ -105,6 +107,7 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "]";
 		return;
 	}
+	echo ",";
 	$num_rows = mysqli_num_rows($rows);
 	$counter = 0;
 	while ($row = mysqli_fetch_array($rows)) {
