@@ -131,6 +131,7 @@ elseif ($_POST['action'] == "json_records_by_car")
 elseif ($_POST['action'] == "json_modify_existing_vehicle")
 {
 	$query = "UPDATE cardb_cars SET vin = '"	. $_POST['updateVin'] . "', plate = '" . $_POST['updatePlate'] . "', registration = '" . $_POST['updateRegistration'] . "', make = '" . $_POST['updateMake'] . "', year = '" . $_POST['updateYear'] . "', model = '" . $_POST['updateModel'] . "', miles = '" . $_POST['updateMiles'] . "', image = '" . $_POST['updateImage'] . "', name = '" . $_POST['updateName'] .	"' WHERE id = '" . $_POST['activeCar']  . "';";
+	echo($query);
 	$rows = mysqli_query($db, $query);
 }
 elseif ($_POST['action'] == "action_administration")
