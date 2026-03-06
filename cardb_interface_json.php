@@ -128,6 +128,11 @@ elseif ($_POST['action'] == "json_records_by_car")
 	}
 	echo "]";
 }
+elseif ($_POST['action'] == "json_modify_existing_vehicle")
+{
+	$query = "UPDATE cardb_cars SET vin = '"	. $_POST['updateVin'] . "', plate = '" . $_POST['updatePlate'] . "', registration = '" . $_POST['updateRegistration'] . "', make = '" . $_POST['updateMake'] . "', year = '" . $_POST['updateYear'] . "', model = '" . $_POST['updateModel'] . "', miles = '" . $_POST['updateMiles'] . "', image = '" . $_POST['updateImage'] . "', name = '" . $_POST['updateName'] .	"' WHERE id = '" . $_POST['activeCar']  . "';";
+	$rows = mysqli_query($db, $query);
+}
 elseif ($_POST['action'] == "action_administration")
 {
 	echo $dev_admin;
@@ -138,73 +143,7 @@ elseif ($_POST['action'] == "submit_new_vehicle")
 	
 	$rows = mysqli_query($db, $query);
 }
-elseif ($_POST['action'] == "modify_existing_vehicle")
-{
-    $query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
-    $rows = mysqli_query($db, $query);
-    if ($rows == null) {
-        return;
-    }
-    $row = mysqli_fetch_array($rows);
 
-    echo '<h2>Modify Vehicle Information</h2>';
-    echo '<form id="modifyVehicleForm" style="display: flex; align-items: center; gap: 20px; margin-left: 40px;">'; // Added left margin
-
-    // Use a table for better alignment of labels and input fields
-    echo '<table class="form-table" style="width: 35%;">';
-    echo '<tr>';
-    echo '<td><label for="name">Name:</label></td>';
-    echo '<td><input type="text" id="name" name="name" required value="' . $row['name'] . '" /></td>';
-    echo '</tr>';
-
-    echo '<tr>';
-    echo '<td><label for="make">Make:</label></td>';
-    echo '<td><input type="text" id="make" name="make" required value="' . $row['make'] . '" /></td>';
-    echo '</tr>';
-
-    echo '<tr>';
-    echo '<td><label for="model">Model:</label></td>';
-    echo '<td><input type="text" id="model" name="model" required value="' . $row['model'] . '" /></td>';
-    echo '</tr>';
-
-    echo '<tr>';
-    echo '<td><label for="year">Year:</label></td>';
-    echo '<td><input type="number" id="year" name="year" required value="' . $row['year'] . '" /></td>';
-    echo '</tr>';
-
-    echo '<tr>';
-    echo '<td><label for="image">Image URL:</label></td>';
-    echo '<td><input type="text" id="image" name="image" required value="' . $row['image'] . '" /></td>';
-    echo '</tr>';
-
-    echo '<tr>';
-    echo '<td><label for="vin">VIN Number:</label></td>';
-    echo '<td><input type="text" id="vin" name="vin" required value="' . $row['vin'] . '" /></td>';
-    echo '</tr>';
-
-    echo '<tr>';
-    echo '<td><label for="registration">Registration Number:</label></td>';
-    echo '<td><input type="text" id="registration" name="registration" required value="' . $row['registration'] . '" /></td>';
-    echo '</tr>';
-
-    echo '<tr>';
-    echo '<td><label for="mileage">Mileage:</label></td>';
-    echo '<td><input type="number" id="mileage" name="mileage" required value="' . $row['miles'] . '" /></td>';
-    echo '</tr>';
-
-    echo '<tr>';
-    echo '<td><label for="license">License Plate:</label></td>';
-    echo '<td><input type="text" id="license" name="license" required value="' . $row['plate'] . '" /></td>';
-    echo '</tr>';
-    echo '</table>';
-
-    // Add the submit button to the right-hand side
-    echo '<div style="flex-shrink: 0;">';
-    echo '<button class="button" title="Update Car Entry" style="width: 125px; height: 100px; margin: 50px; border: none; border-radius: 10px; cursor: pointer;" onclick="pushVehicleUpdates(' . $_POST['activeCar'] . ');">Modify Car</button>';
-    echo '</div>';
-
-    echo '</form>';
-}
 elseif ($_POST['action'] == "show_new_maintenance_entry")
 {
     echo '<h2>Add New Maintenance Record</h2>';
@@ -259,19 +198,7 @@ elseif ($_POST['action'] == "delete_vehicle")
 	
 	$rows = mysqli_query($db, $query);
 }
-elseif ($_POST['action'] == "push_updates_vehicle")
-{
-	$query = "UPDATE cardb_cars SET vin = '"	. $_POST['updateVin'] . "', plate = '" . $_POST['updatePlate'] . "', registration = '" . $_POST['updateRegistration'] . "', make = '" . $_POST['updateMake'] . "', year = '" . $_POST['updateYear'] . "', model = '" . $_POST['updateModel'] . "', miles = '" . $_POST['updateMiles'] . "', image = '" . $_POST['updateImage'] . "', name = '" . $_POST['updateName'] .	"' WHERE id = '" . $_POST['activeCar']  . "';";
-	$rows = mysqli_query($db, $query);
 
-	$query = "SELECT * FROM `cardb_cars` WHERE `id` = '" . $_POST['activeCar'] . "';";
-	$rows = mysqli_query($db, $query);
-	printCarTable($rows, 0);
-
-	$query = "SELECT * FROM `cardb_maint` WHERE `vehicleID` = '" . $_POST['activeCar'] . "';";
-	$rows = mysqli_query($db, $query);
-	printMaintTable($rows);
-}
 elseif ($_POST['action'] == "submit_new_maintenance")
 {
     $query = "INSERT INTO `cardb_maint` (`vehicleID`, `description`, `garage`, `cost`, `miles`, `notes`, `date`) VALUES ('" . $_POST['activeCar']  . "', '" . $_POST['description'] . "', '" . $_POST['garage'] . "', '" . $_POST['cost'] . "', '" . $_POST['miles'] . "', '" . $_POST['notes'] . "', '" . $_POST['date'] . "');";
