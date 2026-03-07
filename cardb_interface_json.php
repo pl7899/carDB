@@ -90,7 +90,7 @@ elseif ($_POST['action'] == "json_select_car")
 		echo "		\"miles\": " . 			$row['miles'] . ",";
 		echo "		\"registration\": \"" . $row['registration'] . "\",";
 		echo "		\"plate\": \"" . 		$row['plate'] . "\",";
-		echo "		\"vin\": \"" . 			$row['vin'] . "\"";
+		echo "		\"vin\": \"" . 			$row['vin'] . "\",";
 		echo "		\"image\": \"" . 		$row['image'] . "\"";
 		if ($counter == $num_rows) {
 			echo "	}";
