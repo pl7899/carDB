@@ -136,6 +136,12 @@ elseif ($_POST['action'] == "json_modify_existing_vehicle")
 	echo($query);
 	$rows = mysqli_query($db, $query);
 }
+elseif ($_POST['action'] == "json_update_existing_maint")
+{
+	$query = "UPDATE cardb_maint SET vehicleID = '"	. $_POST['updateVechicleID'] . "', garage = '" . $_POST['updateGarage'] . "', cost = '" . $_POST['updateCost'] . "', date = '" . $_POST['updateDate'] . "', miles = '" . $_POST['updateMiles'] . "', description = '" . $_POST['updateDescription'] . "', notes = '" . $_POST['updateNotes'] . "', invoice = '" . $_POST['updateInvoice'] . "' WHERE id = '" . $_POST['maintenancetoupdate']  . "';";
+	echo($query);
+	$rows = mysqli_query($db, $query);
+}
 elseif ($_POST['action'] == "action_administration")
 {
 	echo $dev_admin;
@@ -223,57 +229,6 @@ elseif ($_POST['action'] == "add_button_for_maintenance")
 elseif ($_POST['action'] == "add_button_for_car_update")
 {
 	echo "<button class=\"button\" onclick=\"updateExitingCar(" . $_POST['activeCar'] .")\" title=\"Modify the Selected Vehicle\" style=\"width: 250px; height: 200px; background-image: url('images/customization.png'); background-size: cover; background-position: center;\"></button>";
-}
-elseif ($_POST['action'] == "update_existing_maint")
-{
-	$everyOther = TRUE;
-	$tok = strtok($_POST['updatestring'], " =");
-	$key=$tok;
-	while ($tok !== false) {
-		$everyOther = !$everyOther;
-		if($everyOther === FALSE)
-		{
-			$key=$tok;
-		}		
-		else
-		{
-			if($key === "vehicleID")
-			{
-				$newVehicleID = $tok;
-			}
-			else if($key === "garage")
-			{
-				$newGarage = $tok;
-			}
-			else if($key === "cost")
-			{
-				$newCost = $tok;
-			}
-			else if($key === "date")
-			{
-				$newDate = $tok;
-			}
-			else if($key === "miles")
-			{
-				$newMiles = $tok;
-			}
-			else if($key === "notes")
-			{
-				$newNotes = $tok;
-			}
-			else if($key === "description")
-			{
-				$newDescription = $tok;
-			}
-			else if($key === "invoice")
-			{
-				$newInvoice = $tok;
-			}
-		}
-		$tok = strtok(" =");
-	}
-	$query = "UPDATE cardb_maint SET vehicleID = '"	. $newVehicleID . "', garage = '" . $newGarage . "', cost = '" . $newCost . "', date = '" . $newDate . "', miles = '" . $newMiles . "', description = '" . $newDescription . "', notes = '" . $newNotes . "', invoice = '" . $newInvoice . "' WHERE id = '" . $_POST['maintenancetoupdate']  . "';";
-	$rows = mysqli_query($db, $query);
 }
 elseif ($_POST['action'] == "dump_maint")
 {
