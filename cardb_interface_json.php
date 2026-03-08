@@ -115,6 +115,7 @@ elseif ($_POST['action'] == "json_records_by_car")
 	while ($row = mysqli_fetch_array($rows)) {
 	    $counter++;
 		echo "	{";
+		echo "		\"ID\": \"" . 			$row['id'] . "\",";
 		echo "		\"garage\": \"" . 		$row['garage'] . "\",";
 		echo "		\"cost\": \"" . 		$row['cost'] . "\",";
 		echo "		\"miles\": " . 			$row['miles'] . ",";
